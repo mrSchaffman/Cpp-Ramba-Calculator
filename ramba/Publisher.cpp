@@ -48,14 +48,14 @@ namespace ramba
 
     void Publisher::PublisherImpl::subscribe(const std::string& eventName, std::unique_ptr<Observer> observer)
     {
-        auto ptr = m_events.find(eventName);
-        if (ptr == std::end(m_events))
-        {
-            std::ostringstream oss;
-            oss << "Publisher does not support event '" << eventName << "'";
-            throw Exception(oss.str());
-        }
-       // auto obsPtr = ptr->second.find(observer->name());
+    }
+
+    void Publisher::PublisherImpl::unsubscribe(const string& eventName, const string& observerName)
+    {
+    }
+
+    void Publisher::PublisherImpl::notify(const string& eventName, shared_ptr<Event> event)
+    {
     }
 
     void Publisher::unsubscribe(const std::string& eventName, const std::string& observerName)
