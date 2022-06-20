@@ -20,3 +20,14 @@
 */
 
 #include "Observer.h"
+
+namespace ramba
+{
+    void Observer::notify(std::shared_ptr<Event> d)
+    {
+        notifyImpl(d);
+        return;
+    }
+
+}
+
