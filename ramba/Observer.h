@@ -19,10 +19,29 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 */
+
+#ifndef OBSERVER_H
+#define OBSERVER_H
+
 #include <string>
 #include <memory>
 
-class Observer
+namespace rambe
 {
-};
+    class Observer
+    {
+    public:
+        Observer(const std::string& name) :m_name{ name } {}
+        virtual ~Observer() = default;
+
+        void notify(std::shared_ptr<Event>event);
+        const std::string getName()const { return m_name; }
+    private:
+        std::string m_name;
+        virtual void notifyImpl(std::shared_ptr<Event>event) = 0;
+    };
+
+}
+
+#endif // !OBSERVER_H
 

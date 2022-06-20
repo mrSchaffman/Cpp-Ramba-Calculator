@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Event.h" />
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Publisher.h" />
   </ItemGroup>

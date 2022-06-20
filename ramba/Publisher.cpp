@@ -19,4 +19,51 @@
 
 */
 
+
 #include "Publisher.h"
+#include<unordered_map>
+#include<memory>
+#include<sstream>
+#include"Exception.h"
+
+using std::unordered_map;
+
+namespace ramba 
+{
+    class Publisher::PublisherImpl
+    {
+    public:
+        PublisherImpl() = default;
+        ~PublisherImpl() = default;
+
+        void subscribe(const string& eventName, unique_ptr<Observer> observer);
+        void unsubscribe(const string& eventName, const string& observerName);
+        void notify(const string& eventName, shared_ptr<Event>event);     // push semantic
+    private:
+        using Observers = unordered_map<string, unique_ptr<Observer>>;
+        using Events = unordered_map<string, Observers>;
+
+        Events m_events;
+    };
+
+    void Publisher::PublisherImpl::subscribe(const std::string& eventName, std::unique_ptr<Observer> observer)
+    {
+        auto ptr = m_events.find(eventName);
+        if (ptr == std::end(m_events))
+        {
+            std::ostringstream oss;
+            oss << "Publisher does not support event '" << eventName << "'";
+            throw Exception(oss.str());
+        }
+       // auto obsPtr = ptr->second.find(observer->name());
+    }
+
+    void Publisher::unsubscribe(const std::string& eventName, const std::string& observerName)
+    {
+    }
+
+    void Publisher::notify(const std::string& eventName, std::shared_ptr<Event> event)
+    {
+    }
+
+}

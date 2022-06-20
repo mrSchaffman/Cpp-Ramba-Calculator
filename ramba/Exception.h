@@ -20,35 +20,23 @@
 
 */
 
-#ifndef PUBLISHER_H
-#define PUBLISHER_H
-
-#include"Event.h"
-#include"Observer.h"
-using std::string;
-using std::unique_ptr;
-using std::shared_ptr;
+#ifndef EXCEPTION_H
+#define EXCEPTION_H
+#include<string>
 
 namespace ramba
 {
-    class Publisher
+    class Exception
     {
     public:
-        void subscribe(const string& eventName, unique_ptr<Observer> observer);
-        void unsubscribe(const string& eventName, const string& observerName);
-
-    protected:
-        virtual~Publisher() = default;
-        void notify(const string& eventName, shared_ptr<Event>event);     // push semantic
-
+        Exception(const std::string& msg): m_msg{msg}{}
+        std::string& what() { return m_msg; }
     private:
-        class PublisherImpl;
-        std::unique_ptr<PublisherImpl> publisherImpl;   // Bridge design pattern
+        std::string m_msg;
     };
-
 
 }
 
 
-#endif // !Publisher_h
+#endif // !EXCEPTION_H
 
