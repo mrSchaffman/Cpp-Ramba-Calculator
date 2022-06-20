@@ -19,10 +19,12 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 */
-
-class Event
+namespace utility
 {
-private:
-    virtual ~Event() = default;
-};
+	class Event
+	{
+	private:
+		virtual ~Event() = default;
+	};
 
+}
