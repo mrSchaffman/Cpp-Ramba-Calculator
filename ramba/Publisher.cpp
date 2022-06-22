@@ -102,7 +102,7 @@ namespace utility
     {
 		auto ptr = m_observers.find(eventName);
 		if (ptr != std::end(m_observers))
-			std::for_each(std::begin(ptr->second), std::end(ptr->second), [](auto & observer) { observer.second->notify(event_); });
+			std::for_each(std::begin(ptr->second), std::end(ptr->second), [&](auto & observer) { observer.second->notify(event_); });
 		else
 		{
 			std::ostringstream oss;
