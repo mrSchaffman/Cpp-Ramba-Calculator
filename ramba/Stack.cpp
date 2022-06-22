@@ -29,8 +29,8 @@
 
 namespace ramba
 {
-	const std::string stackChanged = "stackChanged";
-	const std::string stackError = "error";
+	const std::string Stack::stackChanged = "stackChanged";
+	const std::string Stack::stackError = "error";
 	
 	class Stack::StackImpl
 	{
@@ -60,7 +60,7 @@ namespace ramba
 	void Stack::StackImpl::push(double d, bool suppressChangeEvent)
 	{
 		stack.push_back(d);
-		if (!suppressChangeEvent) parent.notify(Stack::StackChanged, nullptr);
+		if (!suppressChangeEvent) parent.notify(Stack::stackChanged, nullptr);
 		return;
 	}
 
@@ -71,12 +71,12 @@ namespace ramba
 			auto val = stack.back();
 			stack.pop_back();
 
-			if (!suppressChangeEvent) parent.notify(Stack::StackChanged, nullptr);
+			if (!suppressChangeEvent) parent.notify(Stack::stackChanged, nullptr);
 			return val;
 		}
 		else                  // alternative sequence use case drop
 		{
-			parent.notify(Stack::StackError, std::make_shared<StackEvent>(StackEvent::ErrorType::EMPTY));
+			parent.notify(Stack::stackError, std::make_shared<StackEvent>(StackEvent::ErrorType::EMPTY));
 			throw Exception(StackEvent::getMessage(StackEvent::ErrorType::EMPTY));
 
 		}
@@ -96,11 +96,11 @@ namespace ramba
 			stack.push_back(second);
 
 			// raise the stackChanged Event.
-			parent.notify(Stack::StackChanged, nullptr);
+			parent.notify(Stack::stackChanged, nullptr);
 		}
 		else					// alternative sequence use case swap
 		{
-			parent.notify(Stack::StackError, std::make_shared<StackEvent>(StackEvent::ErrorType::FEW_ARGUMENT));
+			parent.notify(Stack::stackError, std::make_shared<StackEvent>(StackEvent::ErrorType::FEW_ARGUMENT));
 			throw Exception(StackEvent::getMessage(StackEvent::ErrorType::FEW_ARGUMENT));
 
 		}
@@ -129,7 +129,7 @@ namespace ramba
 		stack.clear();
 		
 		// raise the stackChanged event and notify.
-		parent.notify(Stack::StackChanged, nullptr);
+		parent.notify(Stack::stackChanged, nullptr);
 		return;
 	}
 	
@@ -226,8 +226,8 @@ namespace ramba
 	{
 		stackImpl = std::make_unique<StackImpl>(*this);
 
-		Publisher::registerEvent(StackChanged);
-		Publisher::registerEvent(StackError);
+		Publisher::registerEvent(stackChanged);
+		Publisher::registerEvent(stackError);
 	}
 
 }

@@ -57,8 +57,8 @@ namespace ramba
         void clear() ;
 
 		// Event Type raise by this Stack.
-		static const std::string StackChanged;
-		static const std::string StackError;
+		static const std::string stackChanged;
+		static const std::string stackError;
 
     private:
         Stack();
