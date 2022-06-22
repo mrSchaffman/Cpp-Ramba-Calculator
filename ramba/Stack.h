@@ -24,20 +24,27 @@
 
 #include<memory>
 #include<vector>
+#include"Publisher.h"
 
 namespace Service 
 {
-    class Stack
+    class Stack : private utility::Publisher
     {
     public:
         static Stack& getInstance();
-        void push(double);
-        double pop()const;
+        void push(double, bool suppressChangeEvent = false);
+        double pop(bool suppressChangeEvent = false)const;
         void getElements(size_t, std::vector<double>&)const;
         std::vector<double> getElements(size_t)const;
+
+        using Publisher::subscribe;
+        using Publisher::unsubscribe;
+
+        size_t size()const;
+        void clear() const;
     private:
         Stack();
-        ~Stack();
+        ~Stack() = default;
 
         Stack(const Stack&) = delete;
         Stack(Stack&&) = delete;

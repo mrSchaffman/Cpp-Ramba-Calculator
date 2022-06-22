@@ -21,3 +21,40 @@
 
 #include "Stack.h"
 
+using namespace utility;
+
+using namespace Service
+{
+    Stack& Stack::getInstance()
+    {
+        // TODO: insert return statement here
+    }
+
+    void Stack::push(double, bool suppressChangeEvent)
+    {
+    }
+
+    double Stack::pop(bool suppressChangeEvent) const
+    {
+        return 0.0;
+    }
+
+    void Stack::getElements(size_t, std::vector<double>&) const
+    {
+    }
+
+    std::vector<double> Stack::getElements(size_t) const
+    {
+        return std::vector<double>();
+    }
+
+    size_t Stack::size() const
+    {
+        return size_t();
+    }
+
+    void Stack::clear() const
+    {
+    }
+
+}
