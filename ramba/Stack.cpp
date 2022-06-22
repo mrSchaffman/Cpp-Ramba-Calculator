@@ -26,7 +26,6 @@
 #include<algorithm>
 #include<iterator>
 
-using namespace utility;
 
 namespace ramba
 {
@@ -38,7 +37,7 @@ namespace ramba
 	public:
 		explicit StackImpl(const Stack& p):parent(p){}
 		void push(double, bool suppressChangeEvent = false);
-		double pop(bool suppressChangeEvent = false)const;
+		double pop(bool suppressChangeEvent = false);
 		
 		void getElements(size_t, std::vector<double>&)const;
 		std::vector<double> getElements(size_t)const;
@@ -65,7 +64,7 @@ namespace ramba
 		return;
 	}
 
-	double Stack::StackImpl::pop(bool suppressChangeEvent)const
+	double Stack::StackImpl::pop(bool suppressChangeEvent)
 	{
 		if (!stack.empty())		// precondition use case drop
 		{
@@ -101,7 +100,7 @@ namespace ramba
 		}
 		else					// alternative sequence use case swap
 		{
-			parent.notify(Stack::StackError, std::make_shared<StackEvent>(Stack::ErrorType::FEW_ARGUMENT));
+			parent.notify(Stack::StackError, std::make_shared<StackEvent>(StackEvent::ErrorType::FEW_ARGUMENT));
 			throw Exception(StackEvent::getMessage(StackEvent::ErrorType::FEW_ARGUMENT));
 
 		}
@@ -165,7 +164,7 @@ namespace ramba
 		stackImpl->push(d, suppressChangeEvent);
     }
 
-    double Stack::pop(bool suppressChangeEvent) const
+    double Stack::pop(bool suppressChangeEvent) 
     {
         return stackImpl->pop(suppressChangeEvent);
     }

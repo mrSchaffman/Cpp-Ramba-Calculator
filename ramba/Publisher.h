@@ -39,7 +39,7 @@ namespace ramba
 
     protected:
         virtual~Publisher() = default;
-        void notify(const string& eventName, shared_ptr<Event>event);     // push semantic
+        void notify(const string& eventName, shared_ptr<Event>event)const;     // push semantic
 		void registerEvent(const std::string&);
 
     private:

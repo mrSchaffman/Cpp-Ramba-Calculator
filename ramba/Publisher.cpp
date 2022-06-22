@@ -31,18 +31,19 @@ using std::unordered_map;
 
 namespace ramba
 {
+	using ObserverName = const std::string;
+	using EventName = const std::string;
+
     class Publisher::PublisherImpl
     {
     public:
-		using ObserverName = const std::string;
-		using EventName = const std::string;
 
         PublisherImpl() = default;
         ~PublisherImpl() = default;
 
         void subscribe(EventName& eventName, unique_ptr<Observer> observer);
         void unsubscribe(EventName& eventName, ObserverName& observerName);
-        void notify(EventName& eventName, shared_ptr<Event>event);     // push semantic
+		void notify(EventName& eventName, shared_ptr<Event>event) const;    // push semantic
 		void registerEvent(EventName&);
 
 	private:
@@ -100,7 +101,7 @@ namespace ramba
 		}
     }
 
-    void Publisher::PublisherImpl::notify(EventName& eventName, shared_ptr<Event> event_)
+    void Publisher::PublisherImpl::notify(EventName& eventName, shared_ptr<Event> event_)const
     {
 		auto ptr = m_observers.find(eventName);
 		if (ptr != std::end(m_observers))
@@ -125,15 +126,15 @@ namespace ramba
 
     }
 
-    void Publisher::notify(const std::string& eventName, std::shared_ptr<Event> event)
+    void Publisher::notify(const std::string& eventName, std::shared_ptr<Event> event)const
     {
 		publisherImpl->notify(eventName, event);
 
     }
 	void Publisher::PublisherImpl::registerEvent(EventName& e)
 	{
-		auto pr = m_observers.insert(e, ObserversByEvent{});
-		if (!pr->second)
+		auto pr = m_observers.insert(std::pair<EventName, ObserversByEvent>(e, ObserversByEvent{}));
+		if (!pr.second)
 			throw Exception("Event already registered");
 		
 	}

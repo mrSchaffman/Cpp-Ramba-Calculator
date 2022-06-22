@@ -31,14 +31,14 @@ namespace ramba
     class StackEvent : public Event
     {
     public:
-        enum ErrorType
+        enum class ErrorType
         {
             EMPTY,
             FEW_ARGUMENT,
         };
 
         StackEvent(ErrorType e) : err(e) {}
-        StackEvent(const std::vector<double>& el) : mElement(el) {}
+        StackEvent(const std::vector<double>& el) : mElement(el) { err = ErrorType::EMPTY; }
 
         static const char* getMessage(ErrorType);
         const char* getMessage()const;

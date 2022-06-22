@@ -21,16 +21,16 @@
 
 #include "StackEvent.h"
 
-using namespace ramba
+namespace ramba
 {
 	const char* StackEvent::getMessage(ErrorType e)
 	{
 		switch (e)
 		{
-		case StackEvent::EMPTY:
+		case ErrorType::EMPTY:
 			return "Attempting to pop an empty stack!";
 			break;
-		case StackEvent::FEW_ARGUMENT:
+		case ErrorType::FEW_ARGUMENT:
 			return "Need at least two Element on the Stack to to swap top!";
 			break;
 		default:
@@ -42,7 +42,7 @@ using namespace ramba
 
 	const char* StackEvent::getMessage() const
 	{
-		getMessage(err);
+		return getMessage(err);
 	}
 
 }

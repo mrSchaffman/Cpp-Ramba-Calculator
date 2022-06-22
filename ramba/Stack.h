@@ -34,7 +34,7 @@ namespace ramba
     public:
         static Stack& getInstance();
         void push(double, bool suppressChangeEvent = false);
-        double pop(bool suppressChangeEvent = false)const;
+        double pop(bool suppressChangeEvent = false);
         void getElements(size_t, std::vector<double>&)const;
         std::vector<double> getElements(size_t)const;
 		
