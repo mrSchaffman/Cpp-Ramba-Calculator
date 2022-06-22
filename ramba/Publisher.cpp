@@ -31,8 +31,8 @@ using std::unordered_map;
 
 namespace ramba
 {
-	using ObserverName = const std::string;
-	using EventName = const std::string;
+	using ObserverName = std::string;
+	using EventName = std::string;
 
     class Publisher::PublisherImpl
     {
@@ -41,10 +41,10 @@ namespace ramba
         PublisherImpl();
         ~PublisherImpl();
 
-        void subscribe(EventName& eventName, unique_ptr<Observer> observer);
-        void unsubscribe(EventName& eventName, ObserverName& observerName);
-		void notify(EventName& eventName, shared_ptr<Event>event) const;    // push semantic
-		void registerEvent(EventName&);
+        void subscribe(const EventName& eventName, unique_ptr<Observer> observer);
+        void unsubscribe(const EventName& eventName, const ObserverName& observerName);
+		void notify(const EventName& eventName, shared_ptr<Event>event) const;    // push semantic
+		void registerEvent(const EventName&);
 
 	private:
 
@@ -62,7 +62,7 @@ namespace ramba
 
 	}
 
-    void Publisher::PublisherImpl::subscribe(EventName& eventName, std::unique_ptr<Observer> observer)
+    void Publisher::PublisherImpl::subscribe(const EventName& eventName, std::unique_ptr<Observer> observer)
     {
 		auto ptr = m_observers.find(eventName);
 		if (ptr == std::end(m_observers))
@@ -86,7 +86,7 @@ namespace ramba
 		}
     }
 
-    void Publisher::PublisherImpl::unsubscribe(EventName& eventName, ObserverName& observerName)
+    void Publisher::PublisherImpl::unsubscribe(const EventName& eventName, const ObserverName& observerName)
     {
 		auto count = m_observers.count(eventName);
 		if (count)
@@ -109,7 +109,7 @@ namespace ramba
 		}
     }
 
-    void Publisher::PublisherImpl::notify(EventName& eventName, shared_ptr<Event> event_)const
+    void Publisher::PublisherImpl::notify(const EventName& eventName, shared_ptr<Event> event_)const
     {
 		auto ptr = m_observers.find(eventName);
 		if (ptr != std::end(m_observers))
@@ -158,7 +158,7 @@ namespace ramba
 		publisherImpl->notify(eventName, event);
 
     }
-	void Publisher::PublisherImpl::registerEvent(EventName& e)
+	void Publisher::PublisherImpl::registerEvent(const EventName& e)
 	{
 		auto pr = m_observers.insert(std::pair<EventName, ObserversByEvent>(e, ObserversByEvent{}));
 		if (!pr.second)
