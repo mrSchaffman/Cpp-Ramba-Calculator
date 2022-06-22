@@ -143,6 +143,7 @@
     <ClCompile Include="Publisher.cpp" />
     <ClCompile Include="ramba.cpp" />
     <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="StackEvent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Event.h" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Publisher.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="StackEvent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

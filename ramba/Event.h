@@ -23,7 +23,7 @@ namespace utility
 {
 	class Event
 	{
-	private:
+	public:
 		virtual ~Event() = default;
 	};
 

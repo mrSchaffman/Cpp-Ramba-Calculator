@@ -1,3 +1,4 @@
+#pragma once
 /*
     Copyright (C) 2022  Barth.Feudong
     Author can be contacted here: <https://github.com/mrSchaffman/Cpp-Ramba-Calculator>
@@ -19,5 +20,37 @@
 
 */
 
-#include "Stack.h"
+#ifndef STACKEVENT_H
+#define STACKEVENT_H
+#include"Event.h"   
+#include<vector>
+
+using namespace utility;
+
+namespace Service
+{
+    class StackEvent : public Event
+    {
+    public:
+        enum ErrorType
+        {
+            EMPTY,
+            FEW_ARGUMENT,
+        };
+
+        StackEvent(ErrorType e) : err(e) {}
+        StackEvent(const std::vector<double>& el) : mElement(el) {}
+
+        static const char* getMessage(ErrorType);
+        const char* getMessage()const;
+        ErrorType getErrorType()const { return err; }
+    private:
+        ErrorType err;
+        std::vector<double> mElement;
+
+    };
+
+}
+#endif // !STACKEVENT_H
+
 
