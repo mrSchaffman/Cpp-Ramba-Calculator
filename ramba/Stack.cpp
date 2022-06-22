@@ -28,7 +28,7 @@
 
 using namespace utility;
 
-namespace service
+namespace ramba
 {
 	const std::string stackChanged = "stackChanged";
 	const std::string stackError = "error";
@@ -50,7 +50,7 @@ namespace service
 		double top() const;
 
 		size_t size()const;
-		void clear() const;
+		void clear();
 
 	private:
 		std::deque<double> stack;
@@ -125,7 +125,7 @@ namespace service
 	{
 		return stack.size();
 	}
-	void Stack::StackImpl::clear() const
+	void Stack::StackImpl::clear()
 	{
 		stack.clear();
 		
@@ -217,7 +217,7 @@ namespace service
 		
     }
 
-    void Stack::clear() const
+    void Stack::clear() 
     {
 		stackImpl->clear();
 

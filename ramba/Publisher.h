@@ -29,7 +29,7 @@ using std::string;
 using std::unique_ptr;
 using std::shared_ptr;
 
-namespace utility
+namespace ramba
 {
     class Publisher
     {

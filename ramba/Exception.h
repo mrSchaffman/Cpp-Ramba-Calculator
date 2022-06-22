@@ -24,7 +24,7 @@
 #define EXCEPTION_H
 #include<string>
 
-namespace utility
+namespace ramba
 {
     class Exception
     {

@@ -25,9 +25,8 @@
 #include"Event.h"   
 #include<vector>
 
-using namespace utility;
 
-namespace service
+namespace ramba
 {
     class StackEvent : public Event
     {

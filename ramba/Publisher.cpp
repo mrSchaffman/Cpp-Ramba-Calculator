@@ -29,7 +29,7 @@
 
 using std::unordered_map;
 
-namespace utility
+namespace ramba
 {
     class Publisher::PublisherImpl
     {

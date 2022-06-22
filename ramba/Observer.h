@@ -27,7 +27,7 @@
 #include <memory>
 #include"Event.h"
 
-namespace utility
+namespace ramba
 {
     class Observer
     {

@@ -27,9 +27,9 @@
 #include<vector>
 #include"Publisher.h"
 
-namespace service 
+namespace ramba
 {
-    class Stack : private utility::Publisher
+    class Stack : private Publisher
     {
     public:
         static Stack& getInstance();
@@ -54,7 +54,7 @@ namespace service
         using Publisher::unsubscribe;
 
         size_t size()const;
-        void clear() const;
+        void clear() ;
 
 		// Event Type raise by this Stack.
 		static const std::string StackChanged;
