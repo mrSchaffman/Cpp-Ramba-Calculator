@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Publisher.cpp" />
+    <ClCompile Include="PublisherObserverTest.cpp" />
     <ClCompile Include="ramba.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackEvent.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Exception.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Publisher.h" />
+    <ClInclude Include="PublisherObserverTest.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackEvent.h" />
   </ItemGroup>
