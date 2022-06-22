@@ -20,18 +20,18 @@
 */
 
 #include<deque>
-#include "Stack.h"
+#include"Stack.h"
 #include"Exception.h"
 #include"StackEvent.h"
 #include<algorithm>
-#include<utility>
+#include<iterator>
 
 using namespace utility;
 
-using namespace service
+namespace service
 {
 	const std::string stackChanged = "stackChanged";
-	const std::string stackError="error;
+	const std::string stackError = "error";
 	
 	class Stack::StackImpl
 	{
@@ -49,9 +49,6 @@ using namespace service
 		void negateTop();
 		double top() const;
 
-		using Publisher::subscribe;
-		using Publisher::unsubscribe;
-
 		size_t size()const;
 		void clear() const;
 
@@ -68,7 +65,7 @@ using namespace service
 		return;
 	}
 
-	double Stack::StackImpl::pop(bool suppressChangeEvent)
+	double Stack::StackImpl::pop(bool suppressChangeEvent)const
 	{
 		if (!stack.empty())		// precondition use case drop
 		{
@@ -89,7 +86,7 @@ using namespace service
 
 	void Stack::StackImpl::swapTop()
 	{
-		if (stack.size() > 2);	// precondition use case swap
+		if (stack.size() > 2)	// precondition use case swap
 		{
 			auto first = stack.back();
 			stack.pop_back();
@@ -113,7 +110,7 @@ using namespace service
 	void Stack::StackImpl::getElements(size_t s, std::vector<double>& v)const
 	{
 		if(stack.size() > s)
-		std::copy_n(std::rbegin(stack), s, std::back_inserter(v);
+		std::copy_n(std::rbegin(stack), s, std::back_inserter(v));
 		return;
 	}
 
@@ -131,7 +128,7 @@ using namespace service
 	void Stack::StackImpl::clear() const
 	{
 		stack.clear();
-
+		
 		// raise the stackChanged event and notify.
 		parent.notify(Stack::StackChanged, nullptr);
 		return;
