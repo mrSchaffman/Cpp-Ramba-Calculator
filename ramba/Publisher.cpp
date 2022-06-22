@@ -43,7 +43,9 @@ namespace utility
         void subscribe(EventName& eventName, unique_ptr<Observer> observer);
         void unsubscribe(EventName& eventName, ObserverName& observerName);
         void notify(EventName& eventName, shared_ptr<Event>event);     // push semantic
-    private:
+		void registerEvent(EventName&);
+
+	private:
 
         using ObserversByEvent = unordered_map<ObserverName, unique_ptr<Observer>>;
         using Observers = unordered_map<EventName, ObserversByEvent>;
@@ -128,5 +130,18 @@ namespace utility
 		publisherImpl->notify(eventName, event);
 
     }
+	void Publisher::PublisherImpl::registerEvent(EventName& e)
+	{
+		auto pr = m_observers.insert(e, ObserversByEvent{});
+		if (!pr->second)
+			throw Exception("Event already registered");
+		
+	}
+	void Publisher::registerEvent(const std::string& eventName)
+	{
+		publisherImpl->registerEvent(eventName);
+	}
+
+
 
 }

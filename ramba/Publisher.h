@@ -40,6 +40,7 @@ namespace utility
     protected:
         virtual~Publisher() = default;
         void notify(const string& eventName, shared_ptr<Event>event);     // push semantic
+		void registerEvent(const std::string&);
 
     private:
         class PublisherImpl;

@@ -27,7 +27,7 @@
 
 using namespace utility;
 
-namespace Service
+namespace service
 {
     class StackEvent : public Event
     {

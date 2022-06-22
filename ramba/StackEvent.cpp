@@ -21,24 +21,28 @@
 
 #include "StackEvent.h"
 
-const char* Service::StackEvent::getMessage(ErrorType e)
+using namespace service
 {
-	switch (e)
+	const char* StackEvent::getMessage(ErrorType e)
 	{
-	case Service::StackEvent::EMPTY:
-		return "Attempting to pop an empty stack!";
-		break;
-	case Service::StackEvent::FEW_ARGUMENT:
-		return "Need at least two Element on the Stack to to swap top!";
-		break;
-	default:
-		return "Unknown error!";
-		break;
+		switch (e)
+		{
+		case StackEvent::EMPTY:
+			return "Attempting to pop an empty stack!";
+			break;
+		case StackEvent::FEW_ARGUMENT:
+			return "Need at least two Element on the Stack to to swap top!";
+			break;
+		default:
+			return "Unknown error!";
+			break;
+		}
+		return nullptr;
 	}
-    return nullptr;
-}
 
-const char* Service::StackEvent::getMessage() const
-{
-	getMessage(err);
+	const char* StackEvent::getMessage() const
+	{
+		getMessage(err);
+	}
+
 }

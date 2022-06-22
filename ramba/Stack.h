@@ -22,11 +22,12 @@
 #ifndef STACK_H
 #define STACK_H
 
+#include<string>
 #include<memory>
 #include<vector>
 #include"Publisher.h"
 
-namespace Service 
+namespace service 
 {
     class Stack : private utility::Publisher
     {
@@ -36,12 +37,29 @@ namespace Service
         double pop(bool suppressChangeEvent = false)const;
         void getElements(size_t, std::vector<double>&)const;
         std::vector<double> getElements(size_t)const;
+		
+		/*
+			swap the top element from the stack
+			Precondition: stack has at least 2 elements
+			Alternative Sequence: precondition false -> error message
+			Postcondition: The top 2 elements from the stack was swaped.
+		*/
+		void swapTop();
+		void dropTop();
+		void duplicateTop();
+		void negateTop();
+		double top()const;
 
         using Publisher::subscribe;
         using Publisher::unsubscribe;
 
         size_t size()const;
         void clear() const;
+
+		// Event Type raise by this Stack.
+		static const std::string StackChanged;
+		static const std::string StackError;
+
     private:
         Stack();
         ~Stack() = default;
