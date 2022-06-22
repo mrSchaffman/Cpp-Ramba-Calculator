@@ -19,12 +19,38 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 */
-namespace utility
+
+#ifndef STACKEVENT_H
+#define STACKEVENT_H
+#include"Event.h"   
+#include<vector>
+
+using namespace utility;
+
+namespace Service
 {
-	class Event
-	{
-	public:
-		virtual ~Event() = default;
-	};
+    class StackEvent : public Event
+    {
+    public:
+        enum ErrorType
+        {
+            EMPTY,
+            FEW_ARGUMENT,
+        };
+
+        StackEvent(ErrorType e) : err(e) {}
+        StackEvent(const std::vector<double>& el) : mElement(el) {}
+
+        static const char* getMessage(ErrorType);
+        const char* getMessage()const;
+        ErrorType getErrorType()const { return err; }
+    private:
+        ErrorType err;
+        std::vector<double> mElement;
+
+    };
 
 }
+#endif // !STACKEVENT_H
+
+

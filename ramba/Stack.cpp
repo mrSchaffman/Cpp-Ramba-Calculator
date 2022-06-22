@@ -1,4 +1,3 @@
-#pragma once
 /*
     Copyright (C) 2022  Barth.Feudong
     Author can be contacted here: <https://github.com/mrSchaffman/Cpp-Ramba-Calculator>
@@ -19,12 +18,43 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 */
-namespace utility
+
+#include "Stack.h"
+
+using namespace utility;
+
+using namespace Service
 {
-	class Event
-	{
-	public:
-		virtual ~Event() = default;
-	};
+    Stack& Stack::getInstance()
+    {
+        // TODO: insert return statement here
+    }
+
+    void Stack::push(double, bool suppressChangeEvent)
+    {
+    }
+
+    double Stack::pop(bool suppressChangeEvent) const
+    {
+        return 0.0;
+    }
+
+    void Stack::getElements(size_t, std::vector<double>&) const
+    {
+    }
+
+    std::vector<double> Stack::getElements(size_t) const
+    {
+        return std::vector<double>();
+    }
+
+    size_t Stack::size() const
+    {
+        return size_t();
+    }
+
+    void Stack::clear() const
+    {
+    }
 
 }
