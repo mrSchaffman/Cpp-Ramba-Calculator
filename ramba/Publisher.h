@@ -38,7 +38,8 @@ namespace ramba
         void unsubscribe(const string& eventName, const string& observerName);
 
     protected:
-        virtual~Publisher() = default;
+        Publisher();
+        ~Publisher();
         void notify(const string& eventName, shared_ptr<Event>event)const;     // push semantic
 		void registerEvent(const std::string&);
 

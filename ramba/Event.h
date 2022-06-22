@@ -24,7 +24,12 @@ namespace ramba
 	class Event
 	{
 	public:
-		virtual ~Event() = default;
+		virtual ~Event();
 	};
+    Event:: ~Event()
+    {
+
+    }
+
 
 }

@@ -38,8 +38,8 @@ namespace ramba
     {
     public:
 
-        PublisherImpl() = default;
-        ~PublisherImpl() = default;
+        PublisherImpl();
+        ~PublisherImpl();
 
         void subscribe(EventName& eventName, unique_ptr<Observer> observer);
         void unsubscribe(EventName& eventName, ObserverName& observerName);
@@ -53,6 +53,14 @@ namespace ramba
 
 		Observers m_observers;
     };
+	Publisher::PublisherImpl::PublisherImpl()
+	{ 
+	}
+
+	Publisher::PublisherImpl::~PublisherImpl()
+	{
+
+	}
 
     void Publisher::PublisherImpl::subscribe(EventName& eventName, std::unique_ptr<Observer> observer)
     {
@@ -105,7 +113,13 @@ namespace ramba
     {
 		auto ptr = m_observers.find(eventName);
 		if (ptr != std::end(m_observers))
-			std::for_each(std::begin(ptr->second), std::end(ptr->second), [&](auto & observer) { observer.second->notify(event_); });
+		{
+			const auto& obsList = ptr->second;
+
+			for (const auto& obs : obsList)
+				obs.second->notify(event_);
+
+		}
 		else
 		{
 			std::ostringstream oss;
@@ -115,6 +129,19 @@ namespace ramba
 		}
 
     }
+	Publisher::Publisher()
+	{
+		publisherImpl = std::make_unique<PublisherImpl>();
+	}
+
+	Publisher::~Publisher()
+	{
+		// std::unique_ptr requires a definition of the destructor instead
+		// of using the default because the destructor must appear in a scope
+		// in which the complete definition of the template argument for
+		// std::unique_ptr is known
+	}
+
 	void Publisher::subscribe(const string& eventName, unique_ptr<Observer> observer)
 	{
 		publisherImpl->subscribe(eventName, std::move(observer));
