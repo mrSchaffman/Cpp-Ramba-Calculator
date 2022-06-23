@@ -19,9 +19,41 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 */
+#ifndef COMMAND_H
+#define COMMAND_H
 
-
-class Command
+using namespace ramba
 {
-};
+	class Command
+	{
+	public:
+		virtual ~Command() = default;
+		void execute();
+		void undo();
+		Command*clone()const;
+		const char* getHelpMessage() const;
+
+		virtual deallocate();
+	
+	protected:
+		Command() = default;
+		Command(const Command&) = default;
+
+	private:
+		virtual void checkPreconditionsImpl() = 0;
+		virtual void executeImpl() = 0;
+		virtual void undoImpl() = 0;
+		virtual Command* cloneImpl()const = 0;
+		virtual const char* getHelpMessageImpl() const = 0;
+
+		Command(Command&&) = delete;
+		Command& operator=(const Command&) = delete;
+		Command& operator=(Command&&) = delete;
+	};
+
+}
+
+#endif // !COMMAND_H
+
+
 
