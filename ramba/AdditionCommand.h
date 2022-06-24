@@ -26,6 +26,7 @@
 #include"BinaryCommand.h"
 namespace client
 {
+	// Concrete prototype
     class AdditionCommand:public BinaryCommand
     {
 	public:

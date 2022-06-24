@@ -28,6 +28,7 @@
 
 namespace client
 {
+	// second prototype hierarchy
 	class UnaryCommand : public Command
 	{
 	public:

@@ -26,6 +26,7 @@
 
 namespace client
 {
+	// Concrete prototype
     class SineCommand : public UnaryCommand
     {
     public:

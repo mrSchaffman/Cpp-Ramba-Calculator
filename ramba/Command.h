@@ -27,6 +27,28 @@ namespace client
 	/*
 		This class in a prototype -> (prototype design pattern).
 	*/
+
+	/*
+		Commands supported
+		_________________________________________________
+		Command				UnaryCommand	BinaryCommand
+		_________________________________________________
+		EnterCommand		Sine			Add
+		SwapTopOfStack		Cosine			Subtract
+		DropTopOfStack		Tangent			Multiply
+		Duplicate			Arcsine			Divide
+		ClearStack			Arccosine		Power
+							Arctangent		Root
+							Negate
+		_________________________________________________
+	
+		Defining the public interface for a class via a mixture of public nonvirtual functions
+		and private virtual functions is a design principle known as the non-virtual interface
+		(NVI) pattern. The NVI pattern states that polymorphic interfaces should always be
+		defined using non-virtual public functions that forward calls to private virtual functions.
+
+		This Base Class is implementated as a prototype, as in the prototype design pattern.
+	*/
 	class Command
 	{
 	public:

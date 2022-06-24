@@ -27,6 +27,7 @@
 
 namespace client
 {
+	// second prototype hierarchy
 	class BinaryCommand : public Command
 	{
 	public:
