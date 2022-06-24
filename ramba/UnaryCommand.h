@@ -34,7 +34,7 @@ namespace client
 		virtual ~UnaryCommand() = default;
 
 	protected:
-		virtual void checkPreconditionsImpl() override;
+		virtual void checkPreconditionsImpl() const override;
 		UnaryCommand() = default;
 		UnaryCommand(const UnaryCommand&);
 
@@ -43,7 +43,7 @@ namespace client
 		virtual void executeImpl()noexcept override;
 		virtual void undoImpl()noexcept override;
 		virtual Command* cloneImpl()const override;
-		virtual const char* getHelpMessageImpl() const noexcept override;
+		//virtual const char* getHelpMessageImpl() const noexcept override;
 
 		// specific to a unary operation
 		virtual double unaryOperation(double)const noexcept = 0;

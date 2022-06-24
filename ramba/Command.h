@@ -36,19 +36,19 @@ namespace client
 		Command*clone()const;
 		const char* getHelpMessage() const;
 		// delete commands for plugings...
-		virtual deallocate();
+		virtual void deallocate();
 	
 	protected:
 		Command() = default;
 		Command(const Command&) = default;
+		virtual void checkPreconditionsImpl()const;
 
 	private:
-		virtual void checkPreconditionsImpl();
 
 		virtual void executeImpl()noexcept = 0;
 		virtual void undoImpl()noexcept = 0;
 		virtual Command* cloneImpl()const = 0;
-		virtual const char* getHelpMessageImpl()noexcept const = 0;
+		virtual const char* getHelpMessageImpl()const noexcept  = 0;
 
 		Command(Command&&) = delete;
 		Command& operator=(const Command&) = delete;

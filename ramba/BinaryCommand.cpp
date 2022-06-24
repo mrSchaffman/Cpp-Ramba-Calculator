@@ -20,9 +20,11 @@
 */
 
 #include "BinaryCommand.h"
+#include"Exception.h"
 #include"Stack.h"
 
 using namespace service;
+using namespace utility;
 namespace client
 {
 	void BinaryCommand::checkPreconditionsImpl() const
@@ -41,15 +43,15 @@ namespace client
 	{
 		m_top = service::Stack::getInstance().pop(false);
 		m_next = service::Stack::getInstance().pop(false);
-		service::Stack::getInstance().push(unaryOperation(m_top, m_next, false));
+		service::Stack::getInstance().push(binaryOperation(m_top, m_next), false);
 
 	}
 
 	void BinaryCommand::undoImpl() noexcept
 	{
 		service::Stack::getInstance().pop(false);
-		service::Stack::getInstance().push(m_next, false));
-		service::Stack::getInstance().push(m_top, false));
+		service::Stack::getInstance().push(m_next, false);
+		service::Stack::getInstance().push(m_top, false);
 
 	}
 

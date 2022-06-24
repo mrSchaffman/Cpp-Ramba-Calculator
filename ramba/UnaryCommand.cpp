@@ -25,7 +25,7 @@
 
 namespace client
 {
-	void UnaryCommand::checkPreconditionsImpl()
+	void UnaryCommand::checkPreconditionsImpl() const 
 	{
 		// precondition specify in the use case description
 		if (service::Stack::getInstance().size() < 1)
@@ -45,7 +45,7 @@ namespace client
 			5- The Stack push the result and raise the Event: stackChange(), because it'is enabled to false.
 		*/
 		m_top = service::Stack::getInstance().pop(false);
-		service::Stack::getInstance().push(unaryOperation(m_top, false));
+		service::Stack::getInstance().push(unaryOperation(m_top), false);
 	}
 	void UnaryCommand::undoImpl() noexcept
 	{

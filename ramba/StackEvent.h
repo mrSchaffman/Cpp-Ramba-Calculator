@@ -25,6 +25,7 @@
 #include"Event.h"   
 #include<vector>
 
+using namespace utility;
 
 namespace service
 {

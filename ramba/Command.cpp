@@ -42,11 +42,11 @@ namespace client
 	{
 		return getHelpMessageImpl();
 	}
-	Command::deallocate()
+	void Command::deallocate()
 	{
 		delete this;
 	}
-	void Command::checkPreconditionsImpl()
+	void Command::checkPreconditionsImpl() const
 	{
 		return;
 	}
