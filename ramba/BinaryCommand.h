@@ -47,7 +47,6 @@ namespace client
 		// and 		virtual const char* getHelpMessageImpl()noexcept const = 0; from the base class. it doesn't make sence to implement it here.
 
 		void undoImpl() noexcept override;
-
 		virtual double binaryOperation(double next, double top) const noexcept = 0;
 		// 
 		double m_top;

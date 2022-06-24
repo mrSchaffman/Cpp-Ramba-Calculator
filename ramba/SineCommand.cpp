@@ -20,3 +20,23 @@
 */
 
 #include "SineCommand.h"
+#include<cmath>
+
+namespace client
+{
+	SineCommand::SineCommand(const SineCommand & rhs) :UnaryCommand{ rhs }
+	{
+	}
+	SineCommand * SineCommand::cloneImpl() const
+	{
+		return new SineCommand{ *this };
+	}
+	double SineCommand::unaryOperation(double d) const noexcept
+	{
+		return std::sin(d);
+	}
+	const char * SineCommand::getHelpMessageImpl() const noexcept
+	{
+		return "Replace the first element (x) on the Stack with the sin(x). x must be in radians ";
+	}
+}

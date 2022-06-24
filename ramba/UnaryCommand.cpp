@@ -59,6 +59,6 @@ namespace client
 	}
 	Command * UnaryCommand::cloneImpl() const
 	{
-		return nullptr;
+		return this;
 	}
 }

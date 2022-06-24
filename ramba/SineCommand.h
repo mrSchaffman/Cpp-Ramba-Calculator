@@ -29,10 +29,20 @@ namespace client
     class SineCommand : public UnaryCommand
     {
     public:
+		SineCommand() = default;
+		explicit SineCommand(const SineCommand&);
 
+		~SineCommand() = default;
 
     private:
+		SineCommand(const SineCommand&) = delete;
+		SineCommand(SineCommand&&) = delete;
+		SineCommand& operator=(const SineCommand&) = delete;
+		SineCommand& operator=(SineCommand&&) = delete;
 
+		SineCommand* cloneImpl()const override;
+		double unaryOperation(double d)const noexcept override;
+		const char* getHelpMessageImpl() const noexcept override;
 
     };
 

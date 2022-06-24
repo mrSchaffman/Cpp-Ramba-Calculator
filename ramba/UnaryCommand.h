@@ -42,7 +42,6 @@ namespace client
 		// inherited from the base class Command
 		virtual void executeImpl()noexcept override;
 		virtual void undoImpl()noexcept override;
-		virtual Command* cloneImpl()const override;
 		//virtual const char* getHelpMessageImpl() const noexcept override;
 
 		// specific to a unary operation
