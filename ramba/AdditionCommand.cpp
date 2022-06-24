@@ -20,3 +20,21 @@
 */
 
 #include "AdditionCommand.h"
+namespace client
+{
+	AdditionCommand::AdditionCommand(const AdditionCommand & rhs):BinaryCommand{rhs}
+	{
+	}
+	AdditionCommand * AdditionCommand::cloneImpl() const
+	{
+		return new AdditionCommand{*this};
+	}
+	double AdditionCommand::binaryOperation(double d1, double d2) const noexcept
+	{
+		return d1 + d2;
+	}
+	const char * AdditionCommand::getHelpMessageImpl() const noexcept
+	{
+		return "Replace the first two element on the Stack by the Sum of the two";
+	}
+}

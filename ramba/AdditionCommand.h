@@ -28,9 +28,21 @@ namespace client
 {
     class AdditionCommand:public BinaryCommand
     {
-    public:
+	public:
+		AdditionCommand() = default;
+		explicit AdditionCommand(const AdditionCommand&);
 
-    private:
+		~AdditionCommand() = default;
+
+	private:
+		AdditionCommand(const AdditionCommand&) = delete;
+		AdditionCommand(AdditionCommand&&) = delete;
+		AdditionCommand& operator=(const AdditionCommand&) = delete;
+		AdditionCommand& operator=(AdditionCommand&&) = delete;
+
+		AdditionCommand* cloneImpl()const override;
+		double binaryOperation(double d1,double d2)const noexcept override;
+		const char* getHelpMessageImpl() const noexcept override;
 
     };
 
