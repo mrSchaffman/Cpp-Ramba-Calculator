@@ -61,8 +61,4 @@ namespace client
 	{
 		return nullptr;
 	}
-	const char * UnaryCommand::getHelpMessageImpl() const noexcept
-	{
-		return nullptr;
-	}
 }
