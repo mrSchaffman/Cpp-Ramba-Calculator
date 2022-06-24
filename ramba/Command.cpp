@@ -20,3 +20,34 @@
 */
 
 #include "Command.h"
+
+namespace client
+{
+	void Command::execute()
+	{
+		checkPreconditionsImpl();
+		executeImpl();
+		return;
+	}
+	void Command::undo()
+	{
+		undoImpl();
+		return;
+	}
+	Command * Command::clone() const
+	{
+		return cloneImpl();
+	}
+	const char * Command::getHelpMessage() const
+	{
+		return getHelpMessageImpl();
+	}
+	Command::deallocate()
+	{
+		delete this;
+	}
+	void Command::checkPreconditionsImpl()
+	{
+		return;
+	}
+}

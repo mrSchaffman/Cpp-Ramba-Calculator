@@ -20,8 +20,25 @@
 
 */
 
+#ifndef UNARY_COMMAND_H
+#define UNARY_COMMAND_H
 
-class UnaryCommand
+
+#include"Command.h"
+
+namespace client
 {
-};
+	class UnaryCommand
+	{
+	public:
+
+
+	private:
+
+
+	};
+
+}
+#endif // !UNARY_COMMAND_H
+
 

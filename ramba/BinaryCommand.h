@@ -19,9 +19,25 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 */
+#ifndef BINARY_COMMAND_H
+#define BINARY_COMMAND_H
 
 
-class BinaryCommand
+#include"Command.h"
+
+namespace client
 {
-};
+	class BinaryCommand
+	{
+	public:
+
+
+	private:
+
+
+	};
+
+}
+#endif // BINARY_COMMAND_H
+
 

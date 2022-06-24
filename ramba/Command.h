@@ -22,8 +22,11 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-namespace ramba
+namespace client
 {
+	/*
+		This class in a prototype -> (prototype design pattern).
+	*/
 	class Command
 	{
 	public:
@@ -32,15 +35,16 @@ namespace ramba
 		void undo();
 		Command*clone()const;
 		const char* getHelpMessage() const;
-
-		virtual void deallocate();
+		// delete commands for plugings...
+		virtual deallocate();
 	
 	protected:
 		Command() = default;
 		Command(const Command&) = default;
 
 	private:
-		virtual void checkPreconditionsImpl() = 0;
+		virtual void checkPreconditionsImpl();
+
 		virtual void executeImpl() = 0;
 		virtual void undoImpl() = 0;
 		virtual Command* cloneImpl()const = 0;
