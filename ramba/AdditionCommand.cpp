@@ -1,4 +1,3 @@
-#pragma once
 /*
     Copyright (C) 2022  Barth.Feudong
     Author can be contacted here: <https://github.com/mrSchaffman/Cpp-Ramba-Calculator>
@@ -20,17 +19,4 @@
 
 */
 
-#ifndef EVENT_H
-#define EVENT_H
-namespace utility
-{
-    class Event
-    {
-    public:
-        virtual ~Event() = default;
-    };
-}
-
-#endif // !EVENT_H
-
-
+#include "AdditionCommand.h"

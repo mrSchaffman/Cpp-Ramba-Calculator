@@ -20,17 +20,20 @@
 
 */
 
-#ifndef EVENT_H
-#define EVENT_H
-namespace utility
+#ifndef ADDITION_COMMAND
+#define ADDITION_COMMAND
+
+#include"BinaryCommand.h"
+namespace client
 {
-    class Event
+    class AdditionCommand:public BinaryCommand
     {
     public:
-        virtual ~Event() = default;
+
+    private:
+
     };
+
 }
-
-#endif // !EVENT_H
-
+#endif // !ADDITION_COMMAND
 

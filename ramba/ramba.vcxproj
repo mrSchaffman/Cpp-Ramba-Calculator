@@ -139,17 +139,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdditionCommand.cpp" />
     <ClCompile Include="BinaryCommand.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Publisher.cpp" />
     <ClCompile Include="PublisherObserverTest.cpp" />
     <ClCompile Include="ramba.cpp" />
+    <ClCompile Include="SineCommand.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackEvent.cpp" />
     <ClCompile Include="UnaryCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdditionCommand.h" />
     <ClInclude Include="BinaryCommand.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Event.h" />
@@ -157,6 +160,7 @@
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Publisher.h" />
     <ClInclude Include="PublisherObserverTest.h" />
+    <ClInclude Include="SineCommand.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackEvent.h" />
     <ClInclude Include="UnaryCommand.h" />

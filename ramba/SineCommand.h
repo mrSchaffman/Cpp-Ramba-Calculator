@@ -20,17 +20,22 @@
 
 */
 
-#ifndef EVENT_H
-#define EVENT_H
-namespace utility
+#ifndef SINE_COMMAND
+#define SINE_COMMAND
+#include"UnaryCommand.h"
+
+namespace client
 {
-    class Event
+    class SineCommand : public UnaryCommand
     {
     public:
-        virtual ~Event() = default;
+
+
+    private:
+
+
     };
+
 }
-
-#endif // !EVENT_H
-
+#endif // !SINE_COMMAND
 
