@@ -27,7 +27,7 @@
 #include<iterator>
 
 
-namespace ramba
+namespace service
 {
 	const std::string Stack::stackChanged = "stackChanged";
 	const std::string Stack::stackError = "error";

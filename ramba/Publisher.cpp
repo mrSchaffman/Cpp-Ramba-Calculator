@@ -29,7 +29,7 @@
 
 using std::unordered_map;
 
-namespace ramba
+namespace utility
 {
 	using ObserverName = std::string;
 	using EventName = std::string;

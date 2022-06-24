@@ -27,7 +27,7 @@
 
 namespace client
 {
-	class BinaryCommand
+	class BinaryCommand : public Command
 	{
 	public:
 

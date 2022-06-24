@@ -26,7 +26,7 @@
 #include<vector>
 
 
-namespace ramba
+namespace service
 {
     class StackEvent : public Event
     {

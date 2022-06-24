@@ -21,7 +21,7 @@
 
 #include "StackEvent.h"
 
-namespace ramba
+namespace service
 {
 	const char* StackEvent::getMessage(ErrorType e)
 	{

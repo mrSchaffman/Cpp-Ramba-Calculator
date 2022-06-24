@@ -45,10 +45,10 @@ namespace client
 	private:
 		virtual void checkPreconditionsImpl();
 
-		virtual void executeImpl() = 0;
-		virtual void undoImpl() = 0;
+		virtual void executeImpl()noexcept = 0;
+		virtual void undoImpl()noexcept = 0;
 		virtual Command* cloneImpl()const = 0;
-		virtual const char* getHelpMessageImpl() const = 0;
+		virtual const char* getHelpMessageImpl()noexcept const = 0;
 
 		Command(Command&&) = delete;
 		Command& operator=(const Command&) = delete;

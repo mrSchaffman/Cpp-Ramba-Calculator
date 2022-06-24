@@ -28,14 +28,26 @@
 
 namespace client
 {
-	class UnaryCommand
+	class UnaryCommand : public Command
 	{
 	public:
+		virtual ~UnaryCommand() = default;
 
+	protected:
+		virtual void checkPreconditionsImpl() override;
+		UnaryCommand() = default;
+		UnaryCommand(const UnaryCommand&);
 
 	private:
+		// inherited from the base class Command
+		virtual void executeImpl()noexcept override;
+		virtual void undoImpl()noexcept override;
+		virtual Command* cloneImpl()const override;
+		virtual const char* getHelpMessageImpl() const noexcept override;
 
-
+		// specific to a unary operation
+		virtual double unaryOperation(double)const noexcept = 0;
+		double m_top;
 	};
 
 }

@@ -27,7 +27,8 @@
 #include<vector>
 #include"Publisher.h"
 
-namespace ramba
+using namespace utility;
+namespace service
 {
     class Stack : private Publisher
     {
