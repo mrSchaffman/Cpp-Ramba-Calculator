@@ -30,11 +30,27 @@ namespace client
 	class BinaryCommand : public Command
 	{
 	public:
+		virtual ~BinaryCommand() = default;
 
+	protected:
+		virtual void checkPreconditionsImpl() const override;
+
+		BinaryCommand() = default;
+		BinaryCommand(const BinaryCommand&);
 
 	private:
+		BinaryCommand(BinaryCommand&&) = delete;
+		BinaryCommand& operator=(const BinaryCommand&) = delete;
+		BinaryCommand& operator=(BinaryCommand&&) = delete;
 
+		void executeImpl() noexcept override;
 
+		void undoImpl() noexcept override;
+
+		virtual double binaryOperation(double next, double top) const noexcept = 0;
+
+		double m_top;
+		double m_next;
 	};
 
 }

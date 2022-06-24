@@ -20,3 +20,38 @@
 */
 
 #include "BinaryCommand.h"
+#include"Stack.h"
+
+using namespace service;
+namespace client
+{
+	void BinaryCommand::checkPreconditionsImpl() const
+	{
+		// precondition specify in the use case description
+		if (service::Stack::getInstance().size() < 2)
+			throw Exception("The Stack must have at least two elements.");			// alternative sequence describe in the use case.
+
+	}
+
+	BinaryCommand::BinaryCommand(const BinaryCommand & rhs): Command(rhs),m_top{rhs.m_top},m_next{rhs.m_next}
+	{
+	}
+
+	void BinaryCommand::executeImpl() noexcept
+	{
+		m_top = service::Stack::getInstance().pop(false);
+		m_next = service::Stack::getInstance().pop(false);
+		service::Stack::getInstance().push(unaryOperation(m_top, m_next, false));
+
+	}
+
+	void BinaryCommand::undoImpl() noexcept
+	{
+		service::Stack::getInstance().pop(false);
+		service::Stack::getInstance().push(m_next, false));
+		service::Stack::getInstance().push(m_top, false));
+
+	}
+
+}
+
