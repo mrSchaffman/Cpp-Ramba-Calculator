@@ -36,7 +36,6 @@ namespace client
 		~SineCommand() = default;
 
     private:
-		SineCommand(const SineCommand&) = delete;
 		SineCommand(SineCommand&&) = delete;
 		SineCommand& operator=(const SineCommand&) = delete;
 		SineCommand& operator=(SineCommand&&) = delete;

@@ -36,7 +36,6 @@ namespace client
 		~AdditionCommand() = default;
 
 	private:
-		AdditionCommand(const AdditionCommand&) = delete;
 		AdditionCommand(AdditionCommand&&) = delete;
 		AdditionCommand& operator=(const AdditionCommand&) = delete;
 		AdditionCommand& operator=(AdditionCommand&&) = delete;

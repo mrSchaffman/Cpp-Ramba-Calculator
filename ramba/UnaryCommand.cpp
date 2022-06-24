@@ -57,8 +57,4 @@ namespace client
 		service::Stack::getInstance().pop(false);
 		service::Stack::getInstance().push(m_top);
 	}
-	Command * UnaryCommand::cloneImpl() const
-	{
-		return this;
-	}
 }
