@@ -22,7 +22,7 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-using namespace ramba
+namespace ramba
 {
 	class Command
 	{
@@ -33,7 +33,7 @@ using namespace ramba
 		Command*clone()const;
 		const char* getHelpMessage() const;
 
-		virtual deallocate();
+		virtual void deallocate();
 	
 	protected:
 		Command() = default;
