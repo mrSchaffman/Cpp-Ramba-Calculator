@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryCommand.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Publisher.cpp" />
@@ -146,8 +147,10 @@
     <ClCompile Include="ramba.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackEvent.cpp" />
+    <ClCompile Include="UnaryCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinaryCommand.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="Exception.h" />
@@ -156,6 +159,7 @@
     <ClInclude Include="PublisherObserverTest.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackEvent.h" />
+    <ClInclude Include="UnaryCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
