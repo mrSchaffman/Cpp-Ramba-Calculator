@@ -145,17 +145,20 @@
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandController.cpp" />
     <ClCompile Include="CommandCoordinator.cpp" />
+    <ClCompile Include="CommandLog.cpp" />
     <ClCompile Include="CommandRepository.cpp" />
     <ClCompile Include="EnterNumberCommand.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Publisher.cpp" />
     <ClCompile Include="PublisherObserverTest.cpp" />
     <ClCompile Include="ramba.cpp" />
+    <ClCompile Include="RedoStack.cpp" />
     <ClCompile Include="SineCommand.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackEvent.cpp" />
     <ClCompile Include="UnaryCommand.cpp" />
     <ClCompile Include="UndoRedoStrategy.cpp" />
+    <ClCompile Include="UndoStack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdditionCommand.h" />
@@ -164,6 +167,7 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandController.h" />
     <ClInclude Include="CommandCoordinator.h" />
+    <ClInclude Include="CommandLog.h" />
     <ClInclude Include="CommandRepository.h" />
     <ClInclude Include="EnterNumberCommand.h" />
     <ClInclude Include="Event.h" />
@@ -171,11 +175,13 @@
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Publisher.h" />
     <ClInclude Include="PublisherObserverTest.h" />
+    <ClInclude Include="RedoStack.h" />
     <ClInclude Include="SineCommand.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackEvent.h" />
     <ClInclude Include="UnaryCommand.h" />
     <ClInclude Include="UndoRedoStrategy.h" />
+    <ClInclude Include="UndoStack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

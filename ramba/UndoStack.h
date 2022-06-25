@@ -1,3 +1,4 @@
+#pragma once
 /*
     Copyright (C) 2022  Barth.Feudong
     Author can be contacted here: <https://github.com/mrSchaffman/Cpp-Ramba-Calculator>
@@ -19,41 +20,15 @@
 
 */
 
-#include "CommandCoordinator.h"
-
+#ifndef UNDO_STACK_H
+#define UNDO_STACK_H
+#include<stack>
+#include"Command.h"
 namespace service
 {
-
-
-    CommandCoordinator::~CommandCoordinator()
+    class UndoStack : public std::stack<client::Command>
     {
-    }
-
-    void CommandCoordinator::executeCommand(const std::string& commandName, std::unique_ptr<client::Command> cmd)
-    {
-        if (commandName == "undo")
-        {
-        }
-    }
-
-
-
-    void UndoRedoCommandManager::executeUndo()
-    {
-    }
-
-    void UndoRedoCommandManager::executeRedo()
-    {
-    }
-
-    size_t UndoRedoCommandManager::getUndoStackSize() const
-    {
-        return size_t();
-    }
-
-    size_t UndoRedoCommandManager::getRedoStackSize() const
-    {
-        return size_t();
-    }
-
+    };
 }
+#endif // !UNDO_STACK_H
+

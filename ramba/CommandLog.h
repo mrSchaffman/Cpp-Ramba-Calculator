@@ -1,3 +1,4 @@
+#pragma once
 /*
     Copyright (C) 2022  Barth.Feudong
     Author can be contacted here: <https://github.com/mrSchaffman/Cpp-Ramba-Calculator>
@@ -19,41 +20,24 @@
 
 */
 
-#include "CommandCoordinator.h"
-
+#ifndef COMMAND_LOG_H
+#define COMMAND_LOG_H
+#include<memory>
+#include"Command.h"
 namespace service
 {
-
-
-    CommandCoordinator::~CommandCoordinator()
+    class CommandLog
     {
-    }
 
-    void CommandCoordinator::executeCommand(const std::string& commandName, std::unique_ptr<client::Command> cmd)
-    {
-        if (commandName == "undo")
-        {
-        }
-    }
-
-
-
-    void UndoRedoCommandManager::executeUndo()
-    {
-    }
-
-    void UndoRedoCommandManager::executeRedo()
-    {
-    }
-
-    size_t UndoRedoCommandManager::getUndoStackSize() const
-    {
-        return size_t();
-    }
-
-    size_t UndoRedoCommandManager::getRedoStackSize() const
-    {
-        return size_t();
-    }
+    public:
+        CommandLog() = default;
+        ~CommandLog() = default;
+        void log(std::shared_ptr<client::Command>cmd);
+    private:
+        // file
+    };
 
 }
+#endif // !COMMAND_LOG_H
+
+

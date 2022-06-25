@@ -19,41 +19,8 @@
 
 */
 
-#include "CommandCoordinator.h"
-
+#include "RedoStack.h"
 namespace service
 {
-
-
-    CommandCoordinator::~CommandCoordinator()
-    {
-    }
-
-    void CommandCoordinator::executeCommand(const std::string& commandName, std::unique_ptr<client::Command> cmd)
-    {
-        if (commandName == "undo")
-        {
-        }
-    }
-
-
-
-    void UndoRedoCommandManager::executeUndo()
-    {
-    }
-
-    void UndoRedoCommandManager::executeRedo()
-    {
-    }
-
-    size_t UndoRedoCommandManager::getUndoStackSize() const
-    {
-        return size_t();
-    }
-
-    size_t UndoRedoCommandManager::getRedoStackSize() const
-    {
-        return size_t();
-    }
 
 }
