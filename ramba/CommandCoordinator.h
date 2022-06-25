@@ -28,8 +28,6 @@
 #include<stack>
 #include<vector>
 #include<string>
-#include"UndoStack.h"
-#include"RedoStack.h"
 
 namespace service
 {
@@ -37,44 +35,13 @@ namespace service
     class CommandCoordinator
     {
     public:
-        CommandCoordinator() = default;
+        CommandCoordinator();
         ~CommandCoordinator();
         void executeCommand(const std::string& commandName, std::unique_ptr<client::Command> cmd);
-
     private:
-        UndoStack ustack;
-        RedoStack rstack;
+        class CommandCoordinatorImpl;
+        std::unique_ptr<CommandCoordinatorImpl> impl;
     };
-
-    // Command Manager hierarchy 
-    // Business Logic class hierarchy
-
-    class CommandManager
-    {
-    public:
-        virtual ~CommandManager() = default;
-        CommandManager(std::unique_ptr<client::Command>cmd) : m_cmd{ std::move(cmd) } {};
-        virtual void execute() = 0;
-    protected:
-        std::unique_ptr<client::Command>m_cmd;
-    private:
-    };
-
-    class UndoRedoCommandManager
-    {
-    public:
-        UndoRedoCommandManager() = default;
-
-        ~UndoRedoCommandManager() = default;
-        void executeUndo();
-        void executeRedo();
-        size_t getUndoStackSize()const ;
-        size_t getRedoStackSize()const ;
-
-    private:
-
-    };
-
 }
 
 #endif // !COMMAND_MANAGER_H

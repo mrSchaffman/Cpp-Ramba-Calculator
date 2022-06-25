@@ -20,10 +20,26 @@
 */
 
 #include "CommandCoordinator.h"
+#include"EnterNumberCommandManager.h"
+#include"UndoStack.h"
+#include"RedoStack.h"
 
 namespace service
 {
 
+    class CommandCoordinator::CommandCoordinatorImpl
+    {
+    public:
+        CommandCoordinatorImpl();
+        ~CommandCoordinatorImpl() = default;
+        void executeCommand(const std::string& commandName, std::unique_ptr<client::Command> cmd);
+
+    private:
+    };
+
+    CommandCoordinator::CommandCoordinator() : impl{new CommandCoordinatorImpl}
+    {
+    }
 
     CommandCoordinator::~CommandCoordinator()
     {
@@ -31,29 +47,16 @@ namespace service
 
     void CommandCoordinator::executeCommand(const std::string& commandName, std::unique_ptr<client::Command> cmd)
     {
-        if (commandName == "undo")
-        {
-        }
+        impl->executeCommand(commandName, std::move(cmd));
     }
 
-
-
-    void UndoRedoCommandManager::executeUndo()
+    CommandCoordinator::CommandCoordinatorImpl::CommandCoordinatorImpl()
     {
     }
 
-    void UndoRedoCommandManager::executeRedo()
+    void CommandCoordinator::CommandCoordinatorImpl::executeCommand(const std::string& commandName, std::unique_ptr<client::Command> cmd)
     {
-    }
-
-    size_t UndoRedoCommandManager::getUndoStackSize() const
-    {
-        return size_t();
-    }
-
-    size_t UndoRedoCommandManager::getRedoStackSize() const
-    {
-        return size_t();
+        // to do
     }
 
 }

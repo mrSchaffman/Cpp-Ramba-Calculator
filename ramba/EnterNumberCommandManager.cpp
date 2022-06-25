@@ -1,4 +1,3 @@
-#pragma once
 /*
     Copyright (C) 2022  Barth.Feudong
     Author can be contacted here: <https://github.com/mrSchaffman/Cpp-Ramba-Calculator>
@@ -20,34 +19,14 @@
 
 */
 
-#ifndef UNDO_STACK_H
-#define UNDO_STACK_H
-#include<stack>
-#include"Command.h"
-#include<memory>
+#include "EnterNumberCommandManager.h"
+#include"Stack.h"
+#include"UndoStack.h"
 namespace service
 {
-
-    class UndoStack 
+    void EnterNumberCommandManager::execute(std::unique_ptr<client::Command> cmd)
     {
-    public:
-        static std::stack<std::unique_ptr<client::Command>>& getInstance()
-        {
-            return instance;
-        }
-
-    private:
-        static std::stack<std::unique_ptr<client::Command>> instance;
-        
-        UndoStack() = default;
-        ~UndoStack() = default;
-
-        UndoStack(const UndoStack&) = delete;
-        UndoStack(UndoStack&&) = delete;
-        UndoStack& operator=(const UndoStack&) = delete;
-        UndoStack& operator=(UndoStack&&) = delete;
-
-    };
+        cmd->execute();
+        //UndoStack::getInstance().push(std::move(cmd));
+    }
 }
-#endif // !UNDO_STACK_H
-

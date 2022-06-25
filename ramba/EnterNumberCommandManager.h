@@ -19,35 +19,21 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 */
-
-#ifndef UNDO_STACK_H
-#define UNDO_STACK_H
-#include<stack>
+#ifndef ENTER_NUMBER_COMMAND_MANAGER_H
+#define ENTER_NUMBER_COMMAND_MANAGER_H
 #include"Command.h"
 #include<memory>
+
 namespace service
 {
-
-    class UndoStack 
+    class EnterNumberCommandManager
     {
     public:
-        static std::stack<std::unique_ptr<client::Command>>& getInstance()
-        {
-            return instance;
-        }
-
+        EnterNumberCommandManager(){}
+        void execute(std::unique_ptr<client::Command> cmd);
     private:
-        static std::stack<std::unique_ptr<client::Command>> instance;
-        
-        UndoStack() = default;
-        ~UndoStack() = default;
-
-        UndoStack(const UndoStack&) = delete;
-        UndoStack(UndoStack&&) = delete;
-        UndoStack& operator=(const UndoStack&) = delete;
-        UndoStack& operator=(UndoStack&&) = delete;
-
     };
 }
-#endif // !UNDO_STACK_H
+#endif // !ENTER_NUMBER_COMMAND_MANAGER_H
+
 

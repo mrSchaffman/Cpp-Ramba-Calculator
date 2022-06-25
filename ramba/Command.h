@@ -76,7 +76,6 @@ namespace client
 		Command& operator=(const Command&) = delete;
 		Command& operator=(Command&&) = delete;
 	};
-
 }
 
 #endif // !COMMAND_H
