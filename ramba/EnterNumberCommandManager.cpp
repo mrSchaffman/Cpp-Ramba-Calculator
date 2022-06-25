@@ -26,7 +26,9 @@ namespace service
 {
     void EnterNumberCommandManager::execute(std::unique_ptr<client::Command> cmd)
     {
+        // dynamic_cast???
         cmd->execute();
+        // Log the command
         //UndoStack::getInstance().push(std::move(cmd));
     }
 }
