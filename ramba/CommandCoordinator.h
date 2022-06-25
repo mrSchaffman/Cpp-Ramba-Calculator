@@ -36,85 +36,32 @@ namespace service
     using RedoStack = std::stack<client::Command>;
     using CommandLog = std::vector<std::string>;
 
+    class CommandCoordinator
+    {
+    public:
+        CommandCoordinator() = default;
+        ~CommandCoordinator();
+        void executeCommand(const std::string& commandName, std::unique_ptr<client::Command> cmd);
+
+    private:
+    };
+
+    // Command Manager hierarchy 
     // Business Logic class hierarchy
+
     class CommandManager
     {
     public:
-        CommandManager();
-        ~CommandManager();
-        void executeCommand(std::unique_ptr<client::Command> cmd);
-
+        virtual ~CommandManager() = default;
+        CommandManager(std::unique_ptr<client::Command>cmd) : m_cmd{ std::move(cmd) } {};
+        virtual void execute() = 0;
+    protected:
+        std::unique_ptr<client::Command>m_cmd;
     private:
-        class CommandManagerImpl;
-        std::unique_ptr<CommandManagerImpl> impl;
     };
-
-    class UndoCommandManager
-    {
-    public:
-        UndoCommandManager()
-        {
-        }
-
-        ~UndoCommandManager()
-        {
-        }
-        void undo();
-
-    private:
-
-    };
-
-    class RedoCommandManager
-    {
-    public:
-        RedoCommandManager()
-        {
-        }
-
-        ~RedoCommandManager()
-        {
-        }
-
-        void redo();
-    private:
-
-    };
-
-    class UninaryCommandManager
-    {
-    public:
-        UninaryCommandManager()
-        {
-        }
-
-        ~UninaryCommandManager()
-        {
-        }
-
-    private:
-
-    };
-
-    class BinaryCommandManager
-    {
-    public:
-        BinaryCommandManager()
-        {
-        }
-
-        ~BinaryCommandManager()
-        {
-        }
-
-    private:
-
-    };
-
-
-
 
 }
+
 #endif // !COMMAND_MANAGER_H
 
 

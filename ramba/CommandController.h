@@ -33,7 +33,7 @@ namespace client
     public:
         CommandController();
         ~CommandController();
-        void processCommand(const std::string & eventName, std::unique_ptr<Command> c);
+        void processCommand(const std::string & commandName, std::unique_ptr<Command> c);
         //void changeState(std::unique_ptr<CalculatorStateMachine> st);
     private:
         //std::unique_ptr< CalculatorStateMachine> state;

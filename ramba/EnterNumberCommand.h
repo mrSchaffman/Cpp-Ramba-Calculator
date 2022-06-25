@@ -1,3 +1,4 @@
+#pragma once
 /*
     Copyright (C) 2022  Barth.Feudong
     Author can be contacted here: <https://github.com/mrSchaffman/Cpp-Ramba-Calculator>
@@ -19,34 +20,33 @@
 
 */
 
-#include "CommandManager.h"
-
-namespace service
+#ifndef ENTER_NUMBER_COMMAND_H
+#define ENTER_NUMBER_COMMAND_H
+#include"Command.h"
+namespace client
 {
-    class CommandManager::CommandManagerImpl
+    class EnterNumberCommand : public Command
     {
     public:
-        CommandManagerImpl();
-        ~CommandManagerImpl();
+        explicit EnterNumberCommand(double d);
+        ~EnterNumberCommand();
+        explicit EnterNumberCommand(const EnterNumberCommand& d);
 
-    private:
-        //std::unique_ptr<UndoRedoStrategy> m_undoStra;
+	private:
 
+		 void executeImpl()noexcept override;
+		 void undoImpl()noexcept override;
+		 EnterNumberCommand* cloneImpl()const override;
+		 const char* getHelpMessageImpl()const noexcept override;
+
+        EnterNumberCommand(EnterNumberCommand&&) = delete;
+        EnterNumberCommand& operator=(const EnterNumberCommand&) = delete;
+        EnterNumberCommand& operator=(EnterNumberCommand&&) = delete;
+
+        double m_top;
     };
 
-    CommandManager::CommandManager()
-    {
-    }
-    CommandManager::~CommandManager()
-    {
-    }
-    void CommandManager::executeCommand(std::unique_ptr<client::Command> cmd)
-    {
-    }
-    CommandManager::CommandManagerImpl::CommandManagerImpl()
-    {
-    }
-    CommandManager::CommandManagerImpl::~CommandManagerImpl()
-    {
-    }
 }
+#endif // !ENTER_NUMBER_COMMAND_H
+
+

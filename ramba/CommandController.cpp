@@ -20,7 +20,7 @@
 */
 
 #include "CommandController.h"
-#include"CommandManager.h"
+#include"CommandCoordinator.h"
 
 namespace client
 {
@@ -32,7 +32,7 @@ namespace client
         void processCommand(const std::string& eventName, std::unique_ptr<Command> c);
 
     private:
-        service::CommandManager m_commandManager;
+        service::CommandCoordinator m_commandCoordinator;
     };
     CommandController::CommandController() : impl{new CommandControllerImpl}
     {
@@ -55,14 +55,14 @@ namespace client
     {
     }
 
-    void CommandController::CommandControllerImpl::processCommand(const std::string& eventName, std::unique_ptr<Command> c)
+    void CommandController::CommandControllerImpl::processCommand(const std::string& commandName, std::unique_ptr<Command> c)
     {
         /*
         * 1 - Command entered -> change state
         * 2 - display wait commandDispatcher->displayWait();
           3 - transfer command to CommandManager to execute.
         */
-        m_commandManager.executeCommand(std::move(c));
+        m_commandCoordinator.executeCommand(commandName, std::move(c));
     }
 
 }
