@@ -69,15 +69,14 @@ namespace service
 		//If(EnterNumberCommandManager)
 		//{
 		//	root->setNextHandler(enterCmdManager);
-		//	root->setNextHandler(cmdLog);
-		//	root->handle();
 		//}
 		//If(AdditionCommandManager)
 		//{
 		//	root->setNextHandler(addCmdManager);
+		//}
+		
 		//	root->setNextHandler(cmdLog);
 		//	root->handle();
-		//}
 
         // to do
     }
