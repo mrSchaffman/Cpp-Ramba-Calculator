@@ -146,6 +146,7 @@
     <ClCompile Include="CommandController.cpp" />
     <ClCompile Include="CommandCoordinator.cpp" />
     <ClCompile Include="CommandLog.cpp" />
+    <ClCompile Include="CommandManager.cpp" />
     <ClCompile Include="CommandRepository.cpp" />
     <ClCompile Include="EnterNumberCommand.cpp" />
     <ClCompile Include="EnterNumberCommandManager.cpp" />
@@ -169,11 +170,13 @@
     <ClInclude Include="CommandController.h" />
     <ClInclude Include="CommandCoordinator.h" />
     <ClInclude Include="CommandLog.h" />
+    <ClInclude Include="CommandManager.h" />
     <ClInclude Include="CommandRepository.h" />
     <ClInclude Include="EnterNumberCommand.h" />
     <ClInclude Include="EnterNumberCommandManager.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="Exception.h" />
+    <ClInclude Include="Handler.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Publisher.h" />
     <ClInclude Include="PublisherObserverTest.h" />
