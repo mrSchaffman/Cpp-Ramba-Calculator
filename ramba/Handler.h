@@ -28,11 +28,22 @@ namespace utility
     class Handler
     {
     public:
-        Handler() = default;
         virtual ~Handler() = default;
+        void setNextHandler(std::shared_ptr<Handler> s);
+        void handle();
+
     protected:
-        virtual void setNextHandler(std::shared_ptr<Handler> s) = 0;
-        virtual void handle() = 0;
+        Handler() = default;
+        Handler(const Handler&) = default;
+
+    private:
+        virtual void setNextHandlerImpl(std::shared_ptr<Handler> s) noexcept = 0;
+        virtual void handleImpl() noexcept = 0;
+
+        Handler(Handler&&) = delete;
+        Handler& operator=(const Handler&) = delete;
+        Handler& operator=(Handler&&) = delete;
+
     };
 }
 #endif // !HANDLER_H

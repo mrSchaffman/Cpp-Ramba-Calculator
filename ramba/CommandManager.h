@@ -17,11 +17,11 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 */
 
 #ifndef COMMAND_MANAGER_H
 #define COMMAND_MANAGER_H
+
 #include"Handler.h"
 #include"Command.h"
 
@@ -31,15 +31,17 @@ namespace service
     class CommandManager : public utility::Handler
     {
     public:
-        CommandManager(std::shared_ptr<client::Command> cmd);
+        explicit CommandManager(std::shared_ptr<client::Command> cmd): m_cmd{cmd}{}
         virtual ~CommandManager() = default;
 
-        void setNextHandler(std::shared_ptr<Handler> s) override;
-        virtual void handle() override;
-
     protected:
-        std::shared_ptr<Handler> m_nextHandler;
+        std::shared_ptr<utility::Handler> m_nextHandler;
         std::shared_ptr<client::Command> m_cmd;
+    private:
+        virtual void setNextHandlerImpl(std::shared_ptr<Handler> s) noexcept override;
+        virtual void handleImpl()noexcept override;
+
+        //CommandManager(): utility::Handler(){}
     };
 }
 #endif // !COMMAND_MANAGER_H

@@ -150,6 +150,7 @@
     <ClCompile Include="CommandRepository.cpp" />
     <ClCompile Include="EnterNumberCommand.cpp" />
     <ClCompile Include="EnterNumberCommandManager.cpp" />
+    <ClCompile Include="Handler.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Publisher.cpp" />
     <ClCompile Include="PublisherObserverTest.cpp" />

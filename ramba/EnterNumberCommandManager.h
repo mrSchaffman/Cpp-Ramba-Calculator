@@ -21,7 +21,6 @@
 */
 #ifndef ENTER_NUMBER_COMMAND_MANAGER_H
 #define ENTER_NUMBER_COMMAND_MANAGER_H
-#include"Command.h"
 #include"CommandManager.h"
 #include<memory>
 
@@ -31,9 +30,11 @@ namespace service
     {
     public:
         EnterNumberCommandManager(std::shared_ptr<client::Command> cmd): CommandManager(std::move(cmd)){}
-		virtual void handle() override;
+		//void handle() override;
 		~EnterNumberCommandManager() = default;
     private:
+        void handleImpl()noexcept override;
+
     };
 }
 #endif // !ENTER_NUMBER_COMMAND_MANAGER_H

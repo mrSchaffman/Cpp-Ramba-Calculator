@@ -16,21 +16,18 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 */
 
-#include "CommandManager.h"
-namespace service
+#include"Handler.h"
+namespace utility
 {
-    void CommandManager::setNextHandlerImpl(std::shared_ptr<Handler> s) noexcept
+    void Handler::setNextHandler(std::shared_ptr<Handler> s)
     {
-        if (m_nextHandler)m_nextHandler->setNextHandler(s);
-        else
-            m_nextHandler = s;
-
+        setNextHandlerImpl(s);
     }
-    void CommandManager::handleImpl() noexcept
+    void Handler::handle()
     {
-        if (m_nextHandler) m_nextHandler->handle();
-
+        handleImpl();
     }
 }

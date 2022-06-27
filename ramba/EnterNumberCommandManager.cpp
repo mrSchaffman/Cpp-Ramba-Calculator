@@ -25,14 +25,14 @@
 #include"UndoStack.h"
 namespace service
 {
-	void EnterNumberCommandManager::handle()
-	{
-		// handle the Command here
-		m_cmd->execute();
-		
-		// push to undostack
-		// ...
+    void EnterNumberCommandManager::handleImpl() noexcept
+    {
+        // handle here
+        m_cmd->execute();
 
-		CommandManager::handle();
-	}
+        // push to undostack
+        // ...
+
+        CommandManager::handle();
+    }
 }

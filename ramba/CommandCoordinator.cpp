@@ -19,7 +19,7 @@
 
 */
 
-#include "CommandCoordinator.h"
+#include"CommandCoordinator.h"
 #include"EnterNumberCommandManager.h"
 #include"CommandManager.h"
 #include"CommandLogManager.h"
@@ -64,7 +64,7 @@ namespace service
 		std::unique_ptr<EnterNumberCommandManager> enterCmdManager = std::make_unique<EnterNumberCommandManager>(shared);
 		//std::unique_ptr<AdditionCommandManager> addCmdManager = std::make_unique<AdditionCommandManager>(shared);
 		
-		std::unique_ptr<CommandManager> root = sdd::make_shared(new CommandManager(shared));
+		//std::unique_ptr<CommandManager> root = std::make_shared(new CommandManager(shared));
 
 		//If(EnterNumberCommandManager)
 		//{
