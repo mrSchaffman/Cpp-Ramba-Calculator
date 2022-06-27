@@ -1,4 +1,3 @@
-#pragma once
 /*
     Copyright (C) 2022  Barth.Feudong
     Author can be contacted here: <https://github.com/mrSchaffman/Cpp-Ramba-Calculator>
@@ -20,24 +19,14 @@
 
 */
 
-#ifndef COMMAND_LOG_H
-#define COMMAND_LOG_H
-#include<memory>
-#include"Command.h"
+#include "CommandLogManager.h"
+
 namespace service
 {
-    class CommandLog
-    {
-
-    public:
-        CommandLog() = default;
-        ~CommandLog() = default;
-        void log(std::shared_ptr<client::Command>cmd);
-    private:
-        // file
-    };
+	void CommandLogManager::handle() override
+	{
+		// log to file
+		// end of the chain of responsability
+	}
 
 }
-#endif // !COMMAND_LOG_H
-
-

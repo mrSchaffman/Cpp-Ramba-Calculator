@@ -21,6 +21,8 @@
 
 #include "CommandCoordinator.h"
 #include"EnterNumberCommandManager.h"
+#include"CommandManager.h"
+#include"CommandLogManager.h"
 #include"UndoStack.h"
 #include"RedoStack.h"
 
@@ -39,6 +41,7 @@ namespace service
 
     CommandCoordinator::CommandCoordinator() : impl{new CommandCoordinatorImpl}
     {
+		
     }
 
     CommandCoordinator::~CommandCoordinator()
@@ -56,6 +59,26 @@ namespace service
 
     void CommandCoordinator::CommandCoordinatorImpl::executeCommand(const std::string& commandName, std::unique_ptr<client::Command> cmd)
     {
+		std::shared_ptr<client::Command> shared = std::move(cmd);
+		std::unique_ptr<CommandLogManager> cmdLog = std::make_unique<CommandLogManager>(shared);
+		std::unique_ptr<EnterNumberCommandManager> enterCmdManager = std::make_unique<EnterNumberCommandManager>(shared);
+		//std::unique_ptr<AdditionCommandManager> addCmdManager = std::make_unique<AdditionCommandManager>(shared);
+		
+		std::unique_ptr<CommandManager> root = sdd::make_shared(new CommandManager(shared));
+
+		//If(EnterNumberCommandManager)
+		//{
+		//	root->setNextHandler(enterCmdManager);
+		//	root->setNextHandler(cmdLog);
+		//	root->handle();
+		//}
+		//If(AdditionCommandManager)
+		//{
+		//	root->setNextHandler(addCmdManager);
+		//	root->setNextHandler(cmdLog);
+		//	root->handle();
+		//}
+
         // to do
     }
 

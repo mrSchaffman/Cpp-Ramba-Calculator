@@ -20,3 +20,20 @@
 */
 
 #include "CommandManager.h"
+
+namespace service
+{
+	CommandManager::CommandManager(std::shared_ptr<client::Command> cmd): m_cmd{std::move(cmd)}
+	{
+		//m_cmd = std::move(cmd);
+	}
+	void CommandManager::setNextHandler(std::shared_ptr<Handler> s)
+	{
+		if (m_nextHandler) m_nextHandler->setNextHandler(s);
+		else m_nextHandler = s;
+	}
+	void CommandManager::handle()
+	{
+		if (m_nextHandler)m_nextHandler->handle();
+	}
+}

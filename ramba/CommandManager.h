@@ -31,13 +31,13 @@ namespace service
     class CommandManager : public utility::Handler
     {
     public:
-        CommandManager(std::unique_ptr<client::Command> cmd);
-        virtual ~CommandManager();
+        CommandManager(std::shared_ptr<client::Command> cmd);
+        virtual ~CommandManager() = default;
 
         void setNextHandler(std::shared_ptr<Handler> s) override;
         virtual void handle() override;
 
-    private:
+    protected:
         std::shared_ptr<Handler> m_nextHandler;
         std::shared_ptr<client::Command> m_cmd;
     };

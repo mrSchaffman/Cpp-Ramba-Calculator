@@ -19,16 +19,20 @@
 
 */
 
+
 #include "EnterNumberCommandManager.h"
 #include"Stack.h"
 #include"UndoStack.h"
 namespace service
 {
-    void EnterNumberCommandManager::execute(std::unique_ptr<client::Command> cmd)
-    {
-        // dynamic_cast???
-        cmd->execute();
-        // Log the command
-        //UndoStack::getInstance().push(std::move(cmd));
-    }
+	void EnterNumberCommandManager::handle()
+	{
+		// handle the Command here
+		m_cmd->execute();
+		
+		// push to undostack
+		// ...
+
+		CommandManager::handle();
+	}
 }
