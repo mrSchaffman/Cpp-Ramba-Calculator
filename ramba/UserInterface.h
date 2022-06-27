@@ -20,26 +20,19 @@
 
 */
 
-#ifndef COMMAND_LOG_MANAGER_H
-#define COMMAND_LOG_MANAGER_H
-#include<memory>
-#include"Command.h"
-#include"CommandManager.h"
-
-namespace service
+#ifndef USER_INTERFACE_H
+#define USER_INTERFACE_H
+namespace ui
 {
-    class CommandLogManager : public CommandManager
+    class UserInterface
     {
-
     public:
-        CommandLogManager(std::shared_ptr<client::Command> cmd) : CommandManager(cmd) {}
-        ~CommandLogManager() = default;
-		virtual void handle() override;
+
     private:
-        // file
+
     };
 
 }
-#endif // !COMMAND_LOG_H
+#endif // !USER_INTERFACE_H
 
 

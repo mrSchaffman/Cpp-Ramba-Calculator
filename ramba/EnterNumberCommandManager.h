@@ -29,7 +29,7 @@ namespace service
     class EnterNumberCommandManager : public CommandManager
     {
     public:
-        EnterNumberCommandManager(std::shared_ptr<client::Command> cmd): CommandManager(std::move(cmd)){}
+        EnterNumberCommandManager(std::shared_ptr<client::Command> cmd): CommandManager(cmd){}
 		//void handle() override;
 		~EnterNumberCommandManager() = default;
     private:

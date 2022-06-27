@@ -145,7 +145,8 @@
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandController.cpp" />
     <ClCompile Include="CommandCoordinator.cpp" />
-    <ClCompile Include="CommandLog.cpp" />
+    <ClCompile Include="CommandDispatcher.cpp" />
+    <ClCompile Include="CommandLogManager.cpp" />
     <ClCompile Include="CommandManager.cpp" />
     <ClCompile Include="CommandRepository.cpp" />
     <ClCompile Include="EnterNumberCommand.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="UnaryCommand.cpp" />
     <ClCompile Include="UndoRedoStrategy.cpp" />
     <ClCompile Include="UndoStack.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdditionCommand.h" />
@@ -170,7 +172,8 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandController.h" />
     <ClInclude Include="CommandCoordinator.h" />
-    <ClInclude Include="CommandLog.h" />
+    <ClInclude Include="CommandDispatcher.h" />
+    <ClInclude Include="CommandLogManager.h" />
     <ClInclude Include="CommandManager.h" />
     <ClInclude Include="CommandRepository.h" />
     <ClInclude Include="EnterNumberCommand.h" />
@@ -188,6 +191,7 @@
     <ClInclude Include="UnaryCommand.h" />
     <ClInclude Include="UndoRedoStrategy.h" />
     <ClInclude Include="UndoStack.h" />
+    <ClInclude Include="UserInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

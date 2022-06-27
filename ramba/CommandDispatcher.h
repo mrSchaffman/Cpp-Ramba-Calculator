@@ -19,27 +19,20 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 */
-
-#ifndef COMMAND_LOG_MANAGER_H
-#define COMMAND_LOG_MANAGER_H
-#include<memory>
-#include"Command.h"
-#include"CommandManager.h"
-
-namespace service
+#ifndef COMMAND_DISPATCHER_H
+#define COMMAND_DISPATCHER_H
+namespace client
 {
-    class CommandLogManager : public CommandManager
+    class CommandDispatcher
     {
-
     public:
-        CommandLogManager(std::shared_ptr<client::Command> cmd) : CommandManager(cmd) {}
-        ~CommandLogManager() = default;
-		virtual void handle() override;
+
     private:
-        // file
+
     };
 
 }
-#endif // !COMMAND_LOG_H
+
+#endif // !COMMAND_DISPATCHER_H
 
 
