@@ -21,14 +21,27 @@
 */
 #ifndef COMMAND_DISPATCHER_H
 #define COMMAND_DISPATCHER_H
+#include"UserInterface.h"
+#include<memory>
+
 namespace client
 {
     class CommandDispatcher
     {
     public:
 
-    private:
+		explicit CommandDispatcher(ui::UserInterface& userI);
+		~CommandDispatcher();
+		void commandEntered(const std::string& command);
 
+    private:
+		CommandDispatcher(const CommandDispatcher&) = delete;
+		CommandDispatcher(CommandDispatcher&&) = delete;
+		CommandDispatcher& operator=(const CommandDispatcher&) = delete;
+		CommandDispatcher& operator=(CommandDispatcher&&) = delete;
+
+		class CommandDispatcherImpl;
+		std::unique_ptr<CommandDispatcherImpl> pimpl;
     };
 
 }

@@ -19,10 +19,75 @@
 
 */
 
+#include<string>
 #include "CommandDispatcher.h"
+#include"CommandController.h"
+#include"Exception.h"
 
 namespace client
 {
+	class CommandDispatcher::CommandDispatcherImpl
+	{
+	public:
+		explicit CommandDispatcherImpl(ui::UserInterface& ui);
 
+		void executeCommand(const std::string& command);
+
+
+	private:
+		bool isNum(const std::string&, double& d);
+		void handleCommand(std::unique_ptr<client::Command> command);
+		void printHelp() const;
+
+		CommandController m_controller;
+		ui::UserInterface& m_ui;
+
+	};
+
+	CommandDispatcher::CommandDispatcher(ui::UserInterface& userI)
+	{
+		pimpl = std::make_unique<CommandDispatcherImpl>(ui);
+	}
+
+	CommandDispatcher::~CommandDispatcher()
+	{
+
+	}
+
+	void CommandDispatcher::commandEntered(const std::string & command)
+	{
+		pimpl->executeCommand(command);
+	}
+
+	CommandDispatcher::CommandDispatcherImpl::CommandDispatcherImpl(ui::UserInterface & ui):m_ui(ui)
+	{
+	}
+
+	void CommandDispatcher::CommandDispatcherImpl::executeCommand(const std::string & command)
+	{
+		// to do
+	}
+
+	bool CommandDispatcher::CommandDispatcherImpl::isNum(const std::string & a, double & d)
+	{
+		return false;
+	}
+
+	void CommandDispatcher::CommandDispatcherImpl::handleCommand(std::unique_ptr<client::Command> command)
+	{
+		try
+		{
+			m_controller.executeCommand(std::move(c));
+		}
+		catch (Exception& e)
+		{
+			m_ui.postMessage(e.what());
+		}
+	}
+
+	void CommandDispatcher::CommandDispatcherImpl::printHelp() const
+	{
+		// to do
+	}
 
 }
