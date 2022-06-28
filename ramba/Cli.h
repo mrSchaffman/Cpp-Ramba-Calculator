@@ -23,6 +23,8 @@
 #ifndef CLI_H
 #define CLI_H
 #include"UserInterface.h"
+#include<istream>
+#include<ostream>
 namespace ui
 {
     /*
@@ -33,10 +35,19 @@ namespace ui
     */
     class Cli : public UserInterface
     {
-    public:
+	public:
+
+		Cli(std::istream& in, std::ostream& out);
+		~Cli();
+
+		// if echo = true -> each command is repeated before displaying the result.
+		void execute(bool suppressStartupMessage = false, bool echo = false);
+    private:
         void inputUserMessage(const std::string& msg)override;
         void stackChanged()override;
 
+		class CliImpl;
+		std::unique_ptr<CliImpl> pimpl;
     };
 
 }
