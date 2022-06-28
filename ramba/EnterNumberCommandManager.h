@@ -22,6 +22,7 @@
 #ifndef ENTER_NUMBER_COMMAND_MANAGER_H
 #define ENTER_NUMBER_COMMAND_MANAGER_H
 #include"CommandManager.h"
+#include"EnterNumberCommand.h"
 #include<memory>
 
 namespace service
@@ -29,7 +30,7 @@ namespace service
     class EnterNumberCommandManager : public CommandManager
     {
     public:
-        EnterNumberCommandManager(std::shared_ptr<client::Command> cmd): CommandManager(cmd){}
+        EnterNumberCommandManager(std::shared_ptr<client::EnterNumberCommand> numberCmd): CommandManager(numberCmd){}
 		//void handle() override;
 		~EnterNumberCommandManager() = default;
     private:

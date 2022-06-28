@@ -32,9 +32,9 @@ namespace client
         void processCommand(const std::string& eventName, std::unique_ptr<Command> c);
 
     private:
-        service::CommandCoordinator m_commandCoordinator;
     };
-    CommandController::CommandController() : impl{new CommandControllerImpl}
+
+    CommandController::CommandController(service::CommandCoordinator& c) : m_coordonator{c}
     {
     }
 
@@ -62,7 +62,7 @@ namespace client
         * 2 - display wait commandDispatcher->displayWait();
           3 - transfer command to CommandManager to execute.
         */
-        m_commandCoordinator.executeCommand(commandName, std::move(c));
+        //m_commandCoordinator.executeCommand(commandName, std::move(c));
     }
 
 }

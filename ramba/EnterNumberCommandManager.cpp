@@ -31,7 +31,7 @@ namespace service
         m_cmd->execute();
 
         // push to undostack
-        // ...
+        // UndoStack::getInstance().push(m_cmd);
 
         CommandManager::handle();
     }

@@ -30,7 +30,7 @@ namespace client
 	{
 	public:
 		explicit CommandDispatcherImpl(ui::UserInterface& ui);
-
+		CommandDispatcherImpl() = default;
 		void executeCommand(const std::string& command);
 
 
@@ -59,7 +59,7 @@ namespace client
 		pimpl->executeCommand(command);
 	}
 
-	CommandDispatcher::CommandDispatcherImpl::CommandDispatcherImpl(ui::UserInterface & ui):m_ui(ui)
+	CommandDispatcher::CommandDispatcherImpl::CommandDispatcherImpl(ui::UserInterface& ui):m_ui(ui)
 	{
 	}
 

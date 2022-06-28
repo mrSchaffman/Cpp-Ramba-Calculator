@@ -22,16 +22,22 @@
 #ifndef COMMAND_CONTROLLER_H
 #define COMMAND_CONTROLLER_H
 #include"CalculatorStateMachine.h"
+#include"CommandCoordinator.h"
 #include<memory>
 #include"Command.h"
 
 namespace client
 {
     // the context in the state design pattern
+    // has direct link to the service side-> the CommandCoordonator
     class CommandController
     {        
     public:
-        CommandController();
+        CommandController(service::CommandCoordinator& c);
+        CommandController() = default;
+        CommandController(const CommandController&) = default;
+        CommandController(CommandController&&) = default;
+
         ~CommandController();
         void processCommand(const std::string & commandName, std::unique_ptr<Command> c);
         //void changeState(std::unique_ptr<CalculatorStateMachine> st);
@@ -39,10 +45,9 @@ namespace client
         //std::unique_ptr< CalculatorStateMachine> state;
         class CommandControllerImpl;
         std::unique_ptr< CommandControllerImpl> impl;
+        service::CommandCoordinator& m_coordonator;
     private:
 
-        CommandController(const CommandController&) = delete;
-        CommandController(CommandController&&) = delete;
         CommandController& operator=(const CommandController&) = delete;
         CommandController& operator=(CommandController&&) = delete;
     };

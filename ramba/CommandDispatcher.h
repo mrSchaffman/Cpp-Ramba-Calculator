@@ -35,6 +35,7 @@ namespace client
 		void commandEntered(const std::string& command);
 
     private:
+        CommandDispatcher() = default;
 		CommandDispatcher(const CommandDispatcher&) = delete;
 		CommandDispatcher(CommandDispatcher&&) = delete;
 		CommandDispatcher& operator=(const CommandDispatcher&) = delete;

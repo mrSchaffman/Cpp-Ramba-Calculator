@@ -19,8 +19,8 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 */
-#ifndef COMMAND_MANAGER_H
-#define COMMAND_MANAGER_H
+#ifndef COMMAND_COORDONATOR_H
+#define COMMAND_COORDONATOR_H
 #include<memory>
 #include"Stack.h"
 #include"Command.h"
@@ -44,6 +44,6 @@ namespace service
     };
 }
 
-#endif // !COMMAND_MANAGER_H
+#endif // !COMMAND_COORDONATOR_H
 
 

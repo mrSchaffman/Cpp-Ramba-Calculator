@@ -27,7 +27,7 @@ namespace ui
     class UserInterface
     {
     public:
-
+        UserInterface() = default;
     private:
 
     };
