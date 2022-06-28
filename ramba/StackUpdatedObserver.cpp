@@ -29,6 +29,13 @@ namespace ui
 
     void StackUpdatedObserver::notifyImpl(std::shared_ptr<utility::Event> ev)
     {
+        //auto data = std::dynamic_pointer_cast<StackEvent>(ev);
+        //if (data)
+        //    m_cd.stackChanged(data->getElements(4,vector<double>...));  // retrive the n elements coming from the stack
+        //else
+        //    throw utility::Exception("Unable to convert Event to UIEvent!");
+        //return;
+
         m_ui.stackChanged();
     }
 
