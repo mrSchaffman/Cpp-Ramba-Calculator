@@ -34,7 +34,8 @@ namespace service
     public:
         CommandLogManager(std::shared_ptr<client::Command> cmd) : CommandManager(cmd) {}
         ~CommandLogManager() = default;
-		virtual void handle() override;
+        virtual void setNextHandlerImpl(std::shared_ptr<Handler> s) noexcept override;
+        virtual void handleImpl()noexcept override;
     private:
         // file
     };

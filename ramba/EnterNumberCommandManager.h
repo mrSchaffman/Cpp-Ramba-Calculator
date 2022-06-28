@@ -30,12 +30,13 @@ namespace service
     class EnterNumberCommandManager : public CommandManager
     {
     public:
-        EnterNumberCommandManager(std::shared_ptr<client::EnterNumberCommand> numberCmd): CommandManager(numberCmd){}
+        EnterNumberCommandManager(std::shared_ptr<client::Command> numberCmd): CommandManager(numberCmd){}
 		//void handle() override;
 		~EnterNumberCommandManager() = default;
     private:
         void handleImpl()noexcept override;
 
+        EnterNumberCommandManager(const EnterNumberCommandManager&) = delete;
     };
 }
 #endif // !ENTER_NUMBER_COMMAND_MANAGER_H

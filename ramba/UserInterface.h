@@ -41,7 +41,7 @@ namespace ui
 		 and the CommandDispatcher needs to observe event coming from the UserInterface
 	*/
 
-    class UserInterface : protected Publisher
+    class UserInterface : protected utility::Publisher
     {
     public:
         UserInterface() = default;

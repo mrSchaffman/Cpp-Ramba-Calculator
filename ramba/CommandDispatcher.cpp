@@ -73,10 +73,10 @@ namespace client
 		double d;
 		if (isNum(command, d))		// use case: Enter Number
 			m_controller.processCommand(command, std::make_unique<EnterNumberCommand>(d));
-		else if (command == "undo")
-			//m_controller.processCommand(command, std::make_unique<EnterNumberCommand>(d));
-		else if (command == "redo")
-			//m_controller.processCommand(command, std::make_unique<EnterNumberCommand>(d));
+		//else if (command == "undo")
+		//	//m_controller.processCommand(command, std::make_unique<EnterNumberCommand>(d));
+		//else if (command == "redo")
+		//	//m_controller.processCommand(command, std::make_unique<EnterNumberCommand>(d));
 		else if (command == "help")
 			printHelp();
 		else
@@ -84,7 +84,7 @@ namespace client
 			auto c = CommandRepository::getInstance().getCommandByName(command);
 			if (c)
 			{
-				handleCommand(c);
+				handleCommand(std::move(c));
 			}
 			else
 			{

@@ -33,10 +33,8 @@ namespace client
     class CommandController
     {        
     public:
-        CommandController(service::CommandCoordinator& c);
+        explicit CommandController(service::CommandCoordinator& c);
         CommandController() = default;
-        CommandController(const CommandController&) = default;
-        CommandController(CommandController&&) = default;
 
         ~CommandController();
         void processCommand(const std::string & commandName, std::unique_ptr<Command> c);
@@ -48,6 +46,8 @@ namespace client
         service::CommandCoordinator& m_coordonator;
     private:
 
+        CommandController(const CommandController&) = delete;
+        CommandController(CommandController&&) = delete;
         CommandController& operator=(const CommandController&) = delete;
         CommandController& operator=(CommandController&&) = delete;
     };

@@ -23,10 +23,15 @@
 
 namespace service
 {
-	void CommandLogManager::handle() override
-	{
-		// log to file
-		// end of the chain of responsability
-	}
+    void CommandLogManager::setNextHandlerImpl(std::shared_ptr<Handler> s) noexcept
+    {
+    }
+
+    void CommandLogManager::handleImpl() noexcept
+    {
+        // log to file
+        // end of the chain of responsability
+
+    }
 
 }

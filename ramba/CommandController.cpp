@@ -34,7 +34,7 @@ namespace client
     private:
     };
 
-    CommandController::CommandController(service::CommandCoordinator& c) : m_coordonator{c}
+    CommandController::CommandController(service::CommandCoordinator& c) : m_coordonator(c)
     {
     }
 
