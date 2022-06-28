@@ -160,10 +160,12 @@
     <ClCompile Include="SineCommand.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackEvent.cpp" />
+    <ClCompile Include="StackUpdatedObserver.cpp" />
     <ClCompile Include="UIEvent.cpp" />
     <ClCompile Include="UnaryCommand.cpp" />
     <ClCompile Include="UndoRedoStrategy.cpp" />
     <ClCompile Include="UndoStack.cpp" />
+    <ClCompile Include="UserInputObserver.cpp" />
     <ClCompile Include="UserInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -189,10 +191,12 @@
     <ClInclude Include="SineCommand.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackEvent.h" />
+    <ClInclude Include="StackUpdatedObserver.h" />
     <ClInclude Include="UIEvent.h" />
     <ClInclude Include="UnaryCommand.h" />
     <ClInclude Include="UndoRedoStrategy.h" />
     <ClInclude Include="UndoStack.h" />
+    <ClInclude Include="UserInputObserver.h" />
     <ClInclude Include="UserInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
