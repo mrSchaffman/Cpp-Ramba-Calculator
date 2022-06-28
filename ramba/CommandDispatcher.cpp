@@ -36,7 +36,7 @@ namespace client
 
 	private:
 		bool isNum(const std::string&, double& d);
-		void handleCommand(std::unique_ptr<client::Command> command);
+		void handleCommand(std::unique_ptr<client::Command> command); // to update with string
 		void printHelp() const;
 
 		CommandController m_controller;
@@ -46,7 +46,7 @@ namespace client
 
 	CommandDispatcher::CommandDispatcher(ui::UserInterface& userI)
 	{
-		pimpl = std::make_unique<CommandDispatcherImpl>(ui);
+		pimpl = std::make_unique<CommandDispatcherImpl>(userI);
 	}
 
 	CommandDispatcher::~CommandDispatcher()
@@ -77,11 +77,11 @@ namespace client
 	{
 		try
 		{
-			m_controller.executeCommand(std::move(c));
+			m_controller.processCommand("command",std::move(command));
 		}
-		catch (Exception& e)
+		catch (utility::Exception& e)
 		{
-			m_ui.postMessage(e.what());
+			//m_ui.postMessage(e.what());
 		}
 	}
 
