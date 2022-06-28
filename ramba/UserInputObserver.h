@@ -27,6 +27,7 @@ namespace ui
 {
     /*
         The UserinputObserver mediates between commandEntered() events raised by the UserInterface  
+		it needs to be registered in the UserInterface Observer's Table
     */
     class UserInputObserver : utility::Observer
     {
