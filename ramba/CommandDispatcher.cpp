@@ -22,7 +22,11 @@
 #include<string>
 #include "CommandDispatcher.h"
 #include"CommandController.h"
+#include"EnterNumberCommand.h"
+#include"CommandRepository.h"
 #include"Exception.h"
+#include<regex>
+#include<sstream>
 
 namespace client
 {
@@ -65,12 +69,46 @@ namespace client
 
 	void CommandDispatcher::CommandDispatcherImpl::executeCommand(const std::string & command)
 	{
-		// to do
+		// entry of a number simply goes onto the the stack
+		double d;
+		if (isNum(command, d))
+			m_controller.processCommand(command, std::make_unique<EnterNumberCommand>(d));
+		else if (command == "undo")
+			//m_controller.processCommand(command, std::make_unique<EnterNumberCommand>(d));
+		else if (command == "redo")
+			//m_controller.processCommand(command, std::make_unique<EnterNumberCommand>(d));
+		else if (command == "help")
+			printHelp();
+		else
+		{
+			auto c = CommandRepository::getInstance().getCommandByName(command);
+			if (c)
+			{
+				handleCommand(c);
+			}
+			else
+			{
+				std::ostringstream oss;
+				oss << "Command " << command << " is not a known command";
+				//ui_.postMessage(oss.str());
+
+			}
+		}
 	}
 
 	bool CommandDispatcher::CommandDispatcherImpl::isNum(const std::string & a, double & d)
 	{
-		return false;
+		if (a == "+" || a == "-") return false;
+
+		std::regex dpRegex("((\\+|-)?[[:digit:]]*)(\\.(([[:digit:]]+)?))?((e|E)((\\+|-)?)[[:digit:]]+)?");
+		bool isNumber{ std::regex_match(a, dpRegex) };
+
+		if (isNumber)
+		{
+			d = std::stod(a);
+		}
+
+		return isNumber;
 	}
 
 	void CommandDispatcher::CommandDispatcherImpl::handleCommand(std::unique_ptr<client::Command> command)

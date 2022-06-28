@@ -26,6 +26,12 @@
 
 namespace client
 {
+	/*
+		The Command Dispatcher is the interface that connect the client Calculator
+		to the External user: user interface. Thus the CommandDispatcher's ctor takes a
+		reference to an abstract UserInterface.
+		This Class can be design as an Observer directly. buti will use a broker pattern intead.
+	*/
     class CommandDispatcher
     {
     public:
