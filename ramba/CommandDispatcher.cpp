@@ -71,7 +71,7 @@ namespace client
 	{
 		// entry of a number simply goes onto the the stack
 		double d;
-		if (isNum(command, d))
+		if (isNum(command, d))		// use case: Enter Number
 			m_controller.processCommand(command, std::make_unique<EnterNumberCommand>(d));
 		else if (command == "undo")
 			//m_controller.processCommand(command, std::make_unique<EnterNumberCommand>(d));

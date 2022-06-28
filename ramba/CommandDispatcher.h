@@ -38,6 +38,8 @@ namespace client
 
 		explicit CommandDispatcher(ui::UserInterface& userI);
 		~CommandDispatcher();
+
+		// event raised by the user interface. after he received an input from the user.
 		void commandEntered(const std::string& command);
 
     private:

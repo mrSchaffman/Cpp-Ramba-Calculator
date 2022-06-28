@@ -22,12 +22,40 @@
 
 #ifndef USER_INTERFACE_H
 #define USER_INTERFACE_H
+
+#include"Publisher.h"
 namespace ui
 {
-    class UserInterface
+	/*
+		 the UserInterface class itself is not the publisher. The UserInterface class is an abstract
+		 interface for user interfaces in the system and is inheriting from the Publisher class
+		 only to enforce the notion that user interfaces must implement the publisher interface
+		 themselves. Both the CLI and the GUI classes will need to access public functions from
+		 Publisher (for example, to raise events). Thus, the protected mode of inheritance is
+		 appropriate in this instance.
+
+		 So this class cannot be used as a publisher because of failing function not available
+		 at protected level...
+	*/
+
+    class UserInterface : protected Publisher
     {
     public:
         UserInterface() = default;
+        virtual~UserInterface() = default;
+
+		// message comming from the user
+		virtual void inputUserMessage(const std::string& msg) = 0;
+		
+		// message comming from the stack/ the Model
+		virtual void stackChanged() = 0;
+
+		using Publisher::subscribe;
+		using Publisher::unsubscribe;
+
+		// The Name of the Command raised by the user Interface
+		// it is needed for attaching or detaching the Command
+		static const std::string CommandEntered;
     private:
 
     };
