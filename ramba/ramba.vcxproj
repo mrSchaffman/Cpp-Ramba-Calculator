@@ -142,6 +142,7 @@
     <ClCompile Include="AdditionCommand.cpp" />
     <ClCompile Include="BinaryCommand.cpp" />
     <ClCompile Include="CalculatorStateMachine.cpp" />
+    <ClCompile Include="Cli.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandController.cpp" />
     <ClCompile Include="CommandCoordinator.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="AdditionCommand.h" />
     <ClInclude Include="BinaryCommand.h" />
     <ClInclude Include="CalculatorStateMachine.h" />
+    <ClInclude Include="Cli.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandController.h" />
     <ClInclude Include="CommandCoordinator.h" />
