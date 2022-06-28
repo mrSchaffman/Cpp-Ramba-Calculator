@@ -19,8 +19,9 @@
 
 */
 
-#include "UserInterface.h"
+#include "UIEvent.h"
+
 namespace ui
 {
-    const std::string UserInterface::CommandEntered = "CommandEntered";
+
 }

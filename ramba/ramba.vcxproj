@@ -160,6 +160,7 @@
     <ClCompile Include="SineCommand.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackEvent.cpp" />
+    <ClCompile Include="UIEvent.cpp" />
     <ClCompile Include="UnaryCommand.cpp" />
     <ClCompile Include="UndoRedoStrategy.cpp" />
     <ClCompile Include="UndoStack.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="SineCommand.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackEvent.h" />
+    <ClInclude Include="UIEvent.h" />
     <ClInclude Include="UnaryCommand.h" />
     <ClInclude Include="UndoRedoStrategy.h" />
     <ClInclude Include="UndoStack.h" />

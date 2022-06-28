@@ -1,3 +1,4 @@
+#pragma once
 /*
     Copyright (C) 2022  Barth.Feudong
     Author can be contacted here: <https://github.com/mrSchaffman/Cpp-Ramba-Calculator>
@@ -19,8 +20,23 @@
 
 */
 
-#include "UserInterface.h"
+#ifndef UI_EVENT_H
+#define UI_EVENT_H
+#include"Event.h"
+#include<string>
 namespace ui
 {
-    const std::string UserInterface::CommandEntered = "CommandEntered";
+    class UIEvent : public utility::Event
+    {
+    public:
+        UIEvent(const std::string& msg): m_command{msg}{}
+        const std::string& getMessage()const { return m_command; }
+    private:
+
+        std::string m_command;
+    };
+
 }
+#endif // !UI_EVENT_H
+
+
