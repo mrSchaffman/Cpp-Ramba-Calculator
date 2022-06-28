@@ -36,6 +36,9 @@ namespace ui
 
 		 So this class cannot be used as a publisher because of failing function not available
 		 at protected level...
+
+		 The UserInterface need to observer event coming from the stack
+		 and the CommandDispatcher needs to observe event coming from the UserInterface
 	*/
 
     class UserInterface : protected Publisher
