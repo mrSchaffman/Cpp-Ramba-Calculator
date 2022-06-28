@@ -47,14 +47,17 @@ namespace ui
 		// message comming from the user
 		virtual void inputUserMessage(const std::string& msg) = 0;
 		
-		// message comming from the stack/ the Model
+		// message comming from the stack / the Model
 		virtual void stackChanged() = 0;
 
 		using Publisher::subscribe;
 		using Publisher::unsubscribe;
 
 		// The Name of the Command raised by the user Interface
+		// and this is used to notify the observers along with the Data to be handle...
 		// it is needed for attaching or detaching the Command
+		// there is a need to define that Command.
+
 		static const std::string CommandEntered;
     private:
 
