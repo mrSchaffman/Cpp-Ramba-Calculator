@@ -70,7 +70,11 @@ namespace ui
 	}
 	void Cli::CliImpl::executeImpl(bool suppressStartupMessage, bool echo)
 	{
-		// to do
+		if (!suppressStartupMessage) startUpMessage();
+		for (std::string line; std::getline(m_in,line,'\n'))
+		{
+
+		}
 	}
 	void Cli::CliImpl::inputUserMessageImpl(const std::string & msg)
 	{

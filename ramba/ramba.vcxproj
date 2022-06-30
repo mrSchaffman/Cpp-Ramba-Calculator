@@ -162,6 +162,7 @@
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackEvent.cpp" />
     <ClCompile Include="StackUpdatedObserver.cpp" />
+    <ClCompile Include="Tokenizer.cpp" />
     <ClCompile Include="UIEvent.cpp" />
     <ClCompile Include="UnaryCommand.cpp" />
     <ClCompile Include="UndoRedoStrategy.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackEvent.h" />
     <ClInclude Include="StackUpdatedObserver.h" />
+    <ClInclude Include="Tokenizer.h" />
     <ClInclude Include="UIEvent.h" />
     <ClInclude Include="UnaryCommand.h" />
     <ClInclude Include="UndoRedoStrategy.h" />
