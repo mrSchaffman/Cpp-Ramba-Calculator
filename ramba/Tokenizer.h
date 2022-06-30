@@ -34,6 +34,8 @@ namespace utility
         using Token = std::string;
         using Tokens = std::vector<std::string>;
         using const_iterator = Tokens::const_iterator;
+
+        // small trick
         const_iterator begin()const { return m_tokens.cbegin(); };
         const_iterator end()const { return m_tokens.cend(); };
 

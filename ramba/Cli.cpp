@@ -20,6 +20,8 @@
 */
 
 #include "Cli.h"
+#include"Tokenizer.h"
+#include<iostream>
 namespace ui
 {
 	class Cli::CliImpl
@@ -71,9 +73,19 @@ namespace ui
 	void Cli::CliImpl::executeImpl(bool suppressStartupMessage, bool echo)
 	{
 		if (!suppressStartupMessage) startUpMessage();
-		for (std::string line; std::getline(m_in,line,'\n'))
+		for (std::string line; std::getline(m_in,line,'\n');)
 		{
+			utility::Tokenizer tokenzer{ line };
+			for (const auto& i : tokenzer)
+			{
+				if (echo) std::cout << i << std::endl;
+				if (i == "exit" || i == "quit") return;
+				if (i == "w") { std::cout << "Licence Details..." << std::endl;  return; }
+				if (i == "c") { std::cout << "Distribution Details..." << std::endl;  return; }
+				//else m_parent.notify(CommandEntered, std::make_shared<utility::Event>(i));
 
+
+			}
 		}
 	}
 	void Cli::CliImpl::inputUserMessageImpl(const std::string & msg)
@@ -86,6 +98,11 @@ namespace ui
 	}
 	void Cli::CliImpl::startUpMessage()
 	{
-		// to do
+		std::cout << "Ramba  Copyright (C) 2022  Barth. Feudong\n"
+			<< "This program comes with ABSOLUTELY NO WARRANTY; "
+			<< "This is free software, and you are welcome to redistribute it\n"
+			<< "under certain conditions;"
+			<< "for details type 'w' or 'c' for details.\n";
+
 	}
 }
