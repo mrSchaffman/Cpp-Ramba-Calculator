@@ -34,15 +34,14 @@ namespace client
 	{
 	public:
 		explicit CommandDispatcherImpl(ui::UserInterface& ui);
-		CommandDispatcherImpl() = default;
 		void executeCommand(const std::string& command);
-
+		~CommandDispatcherImpl() = default;
 
 	private:
 		bool isNum(const std::string&, double& d);
 		void handleCommand(std::unique_ptr<client::Command> command); // to update with string
 		void printHelp() const;
-
+		
 		CommandController m_controller;
 		ui::UserInterface& m_ui;
 
@@ -63,7 +62,8 @@ namespace client
 		pimpl->executeCommand(command);
 	}
 
-	CommandDispatcher::CommandDispatcherImpl::CommandDispatcherImpl(ui::UserInterface& ui):m_ui(ui)
+	CommandDispatcher::CommandDispatcherImpl::CommandDispatcherImpl
+	(ui::UserInterface& ui):m_ui(ui)
 	{
 	}
 

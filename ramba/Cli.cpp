@@ -21,6 +21,7 @@
 
 #include "Cli.h"
 #include"Tokenizer.h"
+#include"UIEvent.h"
 #include<iostream>
 namespace ui
 {
@@ -82,7 +83,7 @@ namespace ui
 				if (i == "exit" || i == "quit") return;
 				if (i == "w") { std::cout << "Licence Details..." << std::endl;  return; }
 				if (i == "c") { std::cout << "Distribution Details..." << std::endl;  return; }
-				//else m_parent.notify(CommandEntered, std::make_shared<utility::Event>(i));
+				else m_parent.notify(CommandEntered, std::make_shared<UIEvent>(i));
 
 
 			}

@@ -19,13 +19,28 @@
 
 */
 #include <iostream>
+#include"Cli.h"
+#include"CommandDispatcher.h"
+#include"StackUpdatedObserver.h"
+#include"UserInputObserver.h"
+#include"Stack.h"
 
+using namespace std;
 int main()
 {
     std::cout << "Ramba  Copyright (C) 2022  Barth. Feudong\n"
         << "This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\n"
         << "This is free software, and you are welcome to redistribute it\n"
         << "under certain conditions; type `show c' for details.\n\n";
+
+    ui::Cli cli{ std::cin, std::cout };
+    client::CommandDispatcher cd{ cli };
+
+    cli.subscribe(ui::UserInterface::CommandEntered, make_unique<ui::UserInputObserver>(cd));
+
+    service::Stack::getInstance().subscribe(service::Stack::stackChanged, make_unique<ui::StackUpdatedObserver>(cli));
+
+    cli.execute();
 
     return 0;
 }

@@ -34,7 +34,7 @@ namespace client
     {        
     public:
         explicit CommandController(service::CommandCoordinator& c);
-        CommandController() = default;
+        CommandController()=default;
 
         ~CommandController();
         void processCommand(const std::string & commandName, std::unique_ptr<Command> c);
@@ -43,7 +43,6 @@ namespace client
         //std::unique_ptr< CalculatorStateMachine> state;
         class CommandControllerImpl;
         std::unique_ptr< CommandControllerImpl> impl;
-        service::CommandCoordinator& m_coordonator;
     private:
 
         CommandController(const CommandController&) = delete;

@@ -27,15 +27,18 @@ namespace client
     class CommandController::CommandControllerImpl
     {
     public:
-        CommandControllerImpl();
+        CommandControllerImpl(service::CommandCoordinator& coordonator);
         ~CommandControllerImpl();
         void processCommand(const std::string& eventName, std::unique_ptr<Command> c);
 
     private:
+        service::CommandCoordinator& m_coordonator;
     };
 
-    CommandController::CommandController(service::CommandCoordinator& c) : m_coordonator(c)
+    CommandController::CommandController(service::CommandCoordinator& c)
     {
+        impl =  std::make_unique<CommandControllerImpl>(c);
+
     }
 
     CommandController::~CommandController()
@@ -47,7 +50,7 @@ namespace client
         impl->processCommand(eventName, std::move(c));
     }
 
-    CommandController::CommandControllerImpl::CommandControllerImpl()
+    CommandController::CommandControllerImpl::CommandControllerImpl(service::CommandCoordinator& coordonator):m_coordonator(coordonator)
     {
     }
 
